@@ -16,93 +16,93 @@ Each state's data is visualized in three different plots
 - The same time vs cases in a logarithmic scale
 - Number of cases reported per day in each state
 
-## pb 
+## PB 
 ![pb](plots/pb.png){width=50%}
 
-## ar 
+## AR 
 ![ar](plots/ar.png){width=50%}
 
-## tg 
+## TG 
 ![tg](plots/tg.png){width=50%}
 
-## ap 
+## AP 
 ![ap](plots/ap.png){width=50%}
 
-## ut 
+## UT 
 ![ut](plots/ut.png){width=50%}
 
-## ct 
+## CT 
 ![ct](plots/ct.png){width=50%}
 
-## as 
+## AS 
 ![as](plots/as.png){width=50%}
 
-## kl 
+## KL 
 ![kl](plots/kl.png){width=50%}
 
-## up 
+## UP 
 ![up](plots/up.png){width=50%}
 
-## mh 
+## MH 
 ![mh](plots/mh.png){width=50%}
 
-## or 
+## OR 
 ![or](plots/or.png){width=50%}
 
-## la 
+## LA 
 ![la](plots/la.png){width=50%}
 
-## hp 
+## HP 
 ![hp](plots/hp.png){width=50%}
 
-## an 
+## AN 
 ![an](plots/an.png){width=50%}
 
-## jh 
+## JH 
 ![jh](plots/jh.png){width=50%}
 
-## ka 
+## KA 
 ![ka](plots/ka.png){width=50%}
 
-## hr 
+## HR 
 ![hr](plots/hr.png){width=50%}
 
-## gj 
+## GJ 
 ![gj](plots/gj.png){width=50%}
 
-## br 
+## BR 
 ![br](plots/br.png){width=50%}
 
-## mz 
+## MZ 
 ![mz](plots/mz.png){width=50%}
 
-## rj 
+## RJ 
 ![rj](plots/rj.png){width=50%}
 
-## ga 
+## GA 
 ![ga](plots/ga.png){width=50%}
 
-## jk 
+## JK 
 ![jk](plots/jk.png){width=50%}
 
-## dl 
+## DL 
 ![dl](plots/dl.png){width=50%}
 
-## wb 
+## WB 
 ![wb](plots/wb.png){width=50%}
 
-## mp 
+## MP 
 ![mp](plots/mp.png){width=50%}
 
-## mn 
+## MN 
 ![mn](plots/mn.png){width=50%}
 
-## ch 
+## CH 
 ![ch](plots/ch.png){width=50%}
 
-## tn 
+## TN 
 ![tn](plots/tn.png){width=50%}
 
-## py 
+## PY 
 ![py](plots/py.png){width=50%}
 
