@@ -154,17 +154,14 @@ def plot_summary(state):
     plt.close()
 #%%
 with open('Intro.md','r') as intro:
-    with open('ReadMe.md','w') as outfile:
+    with open('README.md','w') as outfile:
         outfile.write(intro.read())
         for state in states:
 #            plot_summary(state)
-            outfile.write(f'## {state} \n![{state}](plots/{state}.png)\n\n')
-
-
-#%%
+            outfile.write(f'## {state} \n![{state}](plots/{state}.png){{width=50%}}\n\n')
 
 #%%
-plot_summary('kl')
+#plot_summary('kl')
 #%%
 '''test code'''
 #state = 'kl'
