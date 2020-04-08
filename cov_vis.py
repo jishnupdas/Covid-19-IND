@@ -114,7 +114,7 @@ def plot_state_data(state):
 def plot_summary(state):
 
     Filter = df[(df['value.state'] == state)]
-
+    st = state
     state  = state_dict[state] # getting the full form
 
     fl = Filter.loc[Filter.groupby(lambda x: Filter['value.report_time'][x].day)['value.report_time'].idxmax()]
@@ -191,7 +191,7 @@ def plot_summary(state):
     ax[2].set_xlabel('Date')
 
     fig.tight_layout()
-    plt.savefig(f'plots/{state}.png',dpi=150)
+    plt.savefig(f'plots/{st}.png',dpi=150)
     plt.show()
     plt.close()
 
@@ -203,11 +203,11 @@ with open('Intro.md','r') as intro:
     with open('README.md','w') as outfile:
         outfile.write(intro.read())
         for state in states:
-            plot_summary(state)
+#            plot_summary(state)
+            st     = state
             state  = state_dict[state]
-            ST = state.capitalize()
-            outfile.write(f'# {ST} \n\n\centering\n\n![](plots/{state}.png){{width=70%}}\n\n\n')
-#            outfile.write(f'# {ST} \n\n\![](plots/{state}.png)\n\n\n')
+#            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.png){{width=70%}}\n\n\n')
+            outfile.write(f'# {state} \n\n\n![](plots/{st}.png)\n\n\n')
 #%%
 '''test code'''
 #state = 'kl'

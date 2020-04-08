@@ -29,186 +29,186 @@ Each state's data is visualized in three different plots
 # Uttarakhand 
 
 
-![](plots/Uttarakhand.png)
+![](plots/ut.png)
 
 
 # Chhattisgarh 
 
 
-![](plots/Chhattisgarh.png)
+![](plots/ct.png)
 
 
 # Tripura 
 
 
-![](plots/Tripura.png)
+![](plots/tr.png)
 
 
 # Punjab 
 
 
-![](plots/Punjab.png)
+![](plots/pb.png)
 
 
 # Jharkhand 
 
 
-![](plots/Jharkhand.png)
+![](plots/jh.png)
 
 
 # Odisha 
 
 
-![](plots/Odisha.png)
+![](plots/or.png)
 
 
 # Karnataka 
 
 
-![](plots/Karnataka.png)
+![](plots/ka.png)
 
 
 # Maharashtra 
 
 
-![](plots/Maharashtra.png)
+![](plots/mh.png)
 
 
-# Tamil nadu 
+# Tamil Nadu 
 
 
-![](plots/Tamil Nadu.png)
+![](plots/tn.png)
 
 
 # Assam 
 
 
-![](plots/Assam.png)
+![](plots/as.png)
 
 
-# Jammu and kashmir 
+# Jammu and Kashmir 
 
 
-![](plots/Jammu and Kashmir.png)
+![](plots/jk.png)
 
 
 # Mizoram 
 
 
-![](plots/Mizoram.png)
+![](plots/mz.png)
 
 
 # Rajasthan 
 
 
-![](plots/Rajasthan.png)
+![](plots/rj.png)
 
 
 # Telangana 
 
 
-![](plots/Telangana.png)
+![](plots/tg.png)
 
 
-# West bengal 
+# West Bengal 
 
 
-![](plots/West Bengal.png)
+![](plots/wb.png)
 
 
-# Uttar pradesh 
+# Uttar Pradesh 
 
 
-![](plots/Uttar Pradesh.png)
+![](plots/up.png)
 
 
 # Haryana 
 
 
-![](plots/Haryana.png)
+![](plots/hr.png)
 
 
 # Bihar 
 
 
-![](plots/Bihar.png)
+![](plots/br.png)
 
 
 # Puducherry 
 
 
-![](plots/Puducherry.png)
+![](plots/py.png)
 
 
 # Gujarat 
 
 
-![](plots/Gujarat.png)
+![](plots/gj.png)
 
 
-# Arunachal pradesh 
+# Arunachal Pradesh 
 
 
-![](plots/Arunachal Pradesh.png)
+![](plots/ar.png)
 
 
 # Ladakh 
 
 
-![](plots/Ladakh.png)
+![](plots/la.png)
 
 
 # Kerala 
 
 
-![](plots/Kerala.png)
+![](plots/kl.png)
 
 
 # Chandigarh 
 
 
-![](plots/Chandigarh.png)
+![](plots/ch.png)
 
 
-# Madhya pradesh 
+# Madhya Pradesh 
 
 
-![](plots/Madhya Pradesh.png)
+![](plots/mp.png)
 
 
-# Andaman and nicobar islands 
+# Andaman and Nicobar Islands 
 
 
-![](plots/Andaman and Nicobar Islands.png)
+![](plots/an.png)
 
 
 # Goa 
 
 
-![](plots/Goa.png)
+![](plots/ga.png)
 
 
 # Delhi 
 
 
-![](plots/Delhi.png)
+![](plots/dl.png)
 
 
-# Himachal pradesh 
+# Himachal Pradesh 
 
 
-![](plots/Himachal Pradesh.png)
+![](plots/hp.png)
 
 
 # Manipur 
 
 
-![](plots/Manipur.png)
+![](plots/mn.png)
 
 
-# Andhra pradesh 
+# Andhra Pradesh 
 
 
-![](plots/Andhra Pradesh.png)
+![](plots/ap.png)
 
 
