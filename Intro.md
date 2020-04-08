@@ -1,8 +1,10 @@
 ---
-<!--author: 
-    - Jishnu P Das-->
+author: 
+    - Covid-19 India Statewise
 title:
     - Covid-19 India Statewise
+header-includes: |
+    \input{theme1.tex}
 ---
 
 # Covid-19 Statewise data for India

@@ -1,8 +1,10 @@
 ---
-<!--author: 
-    - Jishnu P Das-->
+author: 
+    - Covid-19 India Statewise
 title:
     - Covid-19 India Statewise
+header-includes: |
+    \input{theme1.tex}
 ---
 
 # Covid-19 Statewise data for India
@@ -26,156 +28,156 @@ Each state's data is visualized in three different plots
 
 # Uttarakhand 
 
-![](plots/Uttarakhand.png){width=70%}
+\![](plots/Uttarakhand.png)
 
 
 # Chhattisgarh 
 
-![](plots/Chhattisgarh.png){width=70%}
+\![](plots/Chhattisgarh.png)
 
 
 # Tripura 
 
-![](plots/Tripura.png){width=70%}
+\![](plots/Tripura.png)
 
 
 # Punjab 
 
-![](plots/Punjab.png){width=70%}
+\![](plots/Punjab.png)
 
 
 # Jharkhand 
 
-![](plots/Jharkhand.png){width=70%}
+\![](plots/Jharkhand.png)
 
 
 # Odisha 
 
-![](plots/Odisha.png){width=70%}
+\![](plots/Odisha.png)
 
 
 # Karnataka 
 
-![](plots/Karnataka.png){width=70%}
+\![](plots/Karnataka.png)
 
 
 # Maharashtra 
 
-![](plots/Maharashtra.png){width=70%}
+\![](plots/Maharashtra.png)
 
 
 # Tamil nadu 
 
-![](plots/Tamil Nadu.png){width=70%}
+\![](plots/Tamil Nadu.png)
 
 
 # Assam 
 
-![](plots/Assam.png){width=70%}
+\![](plots/Assam.png)
 
 
 # Jammu and kashmir 
 
-![](plots/Jammu and Kashmir.png){width=70%}
+\![](plots/Jammu and Kashmir.png)
 
 
 # Mizoram 
 
-![](plots/Mizoram.png){width=70%}
+\![](plots/Mizoram.png)
 
 
 # Rajasthan 
 
-![](plots/Rajasthan.png){width=70%}
+\![](plots/Rajasthan.png)
 
 
 # Telangana 
 
-![](plots/Telangana.png){width=70%}
+\![](plots/Telangana.png)
 
 
 # West bengal 
 
-![](plots/West Bengal.png){width=70%}
+\![](plots/West Bengal.png)
 
 
 # Uttar pradesh 
 
-![](plots/Uttar Pradesh.png){width=70%}
+\![](plots/Uttar Pradesh.png)
 
 
 # Haryana 
 
-![](plots/Haryana.png){width=70%}
+\![](plots/Haryana.png)
 
 
 # Bihar 
 
-![](plots/Bihar.png){width=70%}
+\![](plots/Bihar.png)
 
 
 # Puducherry 
 
-![](plots/Puducherry.png){width=70%}
+\![](plots/Puducherry.png)
 
 
 # Gujarat 
 
-![](plots/Gujarat.png){width=70%}
+\![](plots/Gujarat.png)
 
 
 # Arunachal pradesh 
 
-![](plots/Arunachal Pradesh.png){width=70%}
+\![](plots/Arunachal Pradesh.png)
 
 
 # Ladakh 
 
-![](plots/Ladakh.png){width=70%}
+\![](plots/Ladakh.png)
 
 
 # Kerala 
 
-![](plots/Kerala.png){width=70%}
+\![](plots/Kerala.png)
 
 
 # Chandigarh 
 
-![](plots/Chandigarh.png){width=70%}
+\![](plots/Chandigarh.png)
 
 
 # Madhya pradesh 
 
-![](plots/Madhya Pradesh.png){width=70%}
+\![](plots/Madhya Pradesh.png)
 
 
 # Andaman and nicobar islands 
 
-![](plots/Andaman and Nicobar Islands.png){width=70%}
+\![](plots/Andaman and Nicobar Islands.png)
 
 
 # Goa 
 
-![](plots/Goa.png){width=70%}
+\![](plots/Goa.png)
 
 
 # Delhi 
 
-![](plots/Delhi.png){width=70%}
+\![](plots/Delhi.png)
 
 
 # Himachal pradesh 
 
-![](plots/Himachal Pradesh.png){width=70%}
+\![](plots/Himachal Pradesh.png)
 
 
 # Manipur 
 
-![](plots/Manipur.png){width=70%}
+\![](plots/Manipur.png)
 
 
 # Andhra pradesh 
 
-![](plots/Andhra Pradesh.png){width=70%}
+\![](plots/Andhra Pradesh.png)
 
 
