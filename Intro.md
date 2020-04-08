@@ -1,3 +1,10 @@
+---
+<!--author: 
+    - Jishnu P Das-->
+title:
+    - Covid-19 India Statewise
+---
+
 # Covid-19 Statewise data for India
 
 ### Credits : [Data Source https://github.com/datameet/covid19](https://github.com/datameet/covid19)

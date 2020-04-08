@@ -204,7 +204,7 @@ with open('Intro.md','r') as intro:
     with open('README.md','w') as outfile:
         outfile.write(intro.read())
         for state in states:
-#            plot_summary(state)
+            plot_summary(state)
             state  = state_dict[state]
             ST = state.capitalize()
             outfile.write(f'# {ST} \n\n![](plots/{state}.png){{width=70%}}\n\n\n')
