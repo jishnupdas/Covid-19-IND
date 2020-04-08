@@ -157,9 +157,9 @@ with open('Intro.md','r') as intro:
     with open('README.md','w') as outfile:
         outfile.write(intro.read())
         for state in states:
-            plot_summary(state)
+#            plot_summary(state)
             ST = state.upper()
-            outfile.write(f'## {ST} \n![{state}](plots/{state}.png){{width=50%}}\n\n')
+            outfile.write(f'# {ST} \n\n![{state}](plots/{state}.png){{width=60%}}\n\n\n')
 
 #%%
 #plot_summary('kl')

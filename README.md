@@ -16,96 +16,159 @@ Each state's data is visualized in three different plots
 - The same time vs cases in a logarithmic scale
 - Number of cases reported per day in each state
 
-## PB 
-![pb](plots/pb.png){width=50%}
 
-## AR 
-![ar](plots/ar.png){width=50%}
+# PB 
 
-## TG 
-![tg](plots/tg.png){width=50%}
+![pb](plots/pb.png){width=60%}
 
-## AP 
-![ap](plots/ap.png){width=50%}
 
-## UT 
-![ut](plots/ut.png){width=50%}
+# AR 
 
-## CT 
-![ct](plots/ct.png){width=50%}
+![ar](plots/ar.png){width=60%}
 
-## AS 
-![as](plots/as.png){width=50%}
 
-## KL 
-![kl](plots/kl.png){width=50%}
+# TG 
 
-## UP 
-![up](plots/up.png){width=50%}
+![tg](plots/tg.png){width=60%}
 
-## MH 
-![mh](plots/mh.png){width=50%}
 
-## OR 
-![or](plots/or.png){width=50%}
+# AP 
 
-## LA 
-![la](plots/la.png){width=50%}
+![ap](plots/ap.png){width=60%}
 
-## HP 
-![hp](plots/hp.png){width=50%}
 
-## AN 
-![an](plots/an.png){width=50%}
+# UT 
 
-## JH 
-![jh](plots/jh.png){width=50%}
+![ut](plots/ut.png){width=60%}
 
-## KA 
-![ka](plots/ka.png){width=50%}
 
-## HR 
-![hr](plots/hr.png){width=50%}
+# CT 
 
-## GJ 
-![gj](plots/gj.png){width=50%}
+![ct](plots/ct.png){width=60%}
 
-## BR 
-![br](plots/br.png){width=50%}
 
-## MZ 
-![mz](plots/mz.png){width=50%}
+# AS 
 
-## TR 
-![tr](plots/tr.png){width=50%}
+![as](plots/as.png){width=60%}
 
-## RJ 
-![rj](plots/rj.png){width=50%}
 
-## GA 
-![ga](plots/ga.png){width=50%}
+# KL 
 
-## JK 
-![jk](plots/jk.png){width=50%}
+![kl](plots/kl.png){width=60%}
 
-## DL 
-![dl](plots/dl.png){width=50%}
 
-## WB 
-![wb](plots/wb.png){width=50%}
+# UP 
 
-## MP 
-![mp](plots/mp.png){width=50%}
+![up](plots/up.png){width=60%}
 
-## MN 
-![mn](plots/mn.png){width=50%}
 
-## CH 
-![ch](plots/ch.png){width=50%}
+# MH 
 
-## TN 
-![tn](plots/tn.png){width=50%}
+![mh](plots/mh.png){width=60%}
 
-## PY 
-![py](plots/py.png){width=50%}
+
+# OR 
+
+![or](plots/or.png){width=60%}
+
+
+# LA 
+
+![la](plots/la.png){width=60%}
+
+
+# HP 
+
+![hp](plots/hp.png){width=60%}
+
+
+# AN 
+
+![an](plots/an.png){width=60%}
+
+
+# JH 
+
+![jh](plots/jh.png){width=60%}
+
+
+# KA 
+
+![ka](plots/ka.png){width=60%}
+
+
+# HR 
+
+![hr](plots/hr.png){width=60%}
+
+
+# GJ 
+
+![gj](plots/gj.png){width=60%}
+
+
+# BR 
+
+![br](plots/br.png){width=60%}
+
+
+# MZ 
+
+![mz](plots/mz.png){width=60%}
+
+
+# TR 
+
+![tr](plots/tr.png){width=60%}
+
+
+# RJ 
+
+![rj](plots/rj.png){width=60%}
+
+
+# GA 
+
+![ga](plots/ga.png){width=60%}
+
+
+# JK 
+
+![jk](plots/jk.png){width=60%}
+
+
+# DL 
+
+![dl](plots/dl.png){width=60%}
+
+
+# WB 
+
+![wb](plots/wb.png){width=60%}
+
+
+# MP 
+
+![mp](plots/mp.png){width=60%}
+
+
+# MN 
+
+![mn](plots/mn.png){width=60%}
+
+
+# CH 
+
+![ch](plots/ch.png){width=60%}
+
+
+# TN 
+
+![tn](plots/tn.png){width=60%}
+
+
+# PY 
+
+![py](plots/py.png){width=60%}
+
 
