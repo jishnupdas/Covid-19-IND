@@ -7,7 +7,6 @@ Created on Tue Apr  7 09:42:50 2020
 """
 import os
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 
 #%%
@@ -207,8 +206,8 @@ with open('Intro.md','r') as intro:
             plot_summary(state)
             state  = state_dict[state]
             ST = state.capitalize()
-#            outfile.write(f'# {ST} \n\n\centering\n\n![](plots/{state}.png){{width=70%}}\n\n\n')
-            outfile.write(f'# {ST} \n\n\![](plots/{state}.png)\n\n\n')
+            outfile.write(f'# {ST} \n\n\centering\n\n![](plots/{state}.png){{width=70%}}\n\n\n')
+#            outfile.write(f'# {ST} \n\n\![](plots/{state}.png)\n\n\n')
 #%%
 '''test code'''
 #state = 'kl'
