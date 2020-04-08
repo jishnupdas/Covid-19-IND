@@ -17,158 +17,158 @@ Each state's data is visualized in three different plots
 - Number of cases reported per day in each state
 
 
-# PB 
+# Uttarakhand 
 
-![pb](plots/pb.png){width=60%}
+![](plots/Uttarakhand.png){width=70%}
 
 
-# AR 
+# Chhattisgarh 
 
-![ar](plots/ar.png){width=60%}
+![](plots/Chhattisgarh.png){width=70%}
 
 
-# TG 
+# Tripura 
 
-![tg](plots/tg.png){width=60%}
+![](plots/Tripura.png){width=70%}
 
 
-# AP 
+# Punjab 
 
-![ap](plots/ap.png){width=60%}
+![](plots/Punjab.png){width=70%}
 
 
-# UT 
+# Jharkhand 
 
-![ut](plots/ut.png){width=60%}
+![](plots/Jharkhand.png){width=70%}
 
 
-# CT 
+# Odisha 
 
-![ct](plots/ct.png){width=60%}
+![](plots/Odisha.png){width=70%}
 
 
-# AS 
+# Karnataka 
 
-![as](plots/as.png){width=60%}
+![](plots/Karnataka.png){width=70%}
 
 
-# KL 
+# Maharashtra 
 
-![kl](plots/kl.png){width=60%}
+![](plots/Maharashtra.png){width=70%}
 
 
-# UP 
+# Tamil nadu 
 
-![up](plots/up.png){width=60%}
+![](plots/Tamil Nadu.png){width=70%}
 
 
-# MH 
+# Assam 
 
-![mh](plots/mh.png){width=60%}
+![](plots/Assam.png){width=70%}
 
 
-# OR 
+# Jammu and kashmir 
 
-![or](plots/or.png){width=60%}
+![](plots/Jammu and Kashmir.png){width=70%}
 
 
-# LA 
+# Mizoram 
 
-![la](plots/la.png){width=60%}
+![](plots/Mizoram.png){width=70%}
 
 
-# HP 
+# Rajasthan 
 
-![hp](plots/hp.png){width=60%}
+![](plots/Rajasthan.png){width=70%}
 
 
-# AN 
+# Telangana 
 
-![an](plots/an.png){width=60%}
+![](plots/Telangana.png){width=70%}
 
 
-# JH 
+# West bengal 
 
-![jh](plots/jh.png){width=60%}
+![](plots/West Bengal.png){width=70%}
 
 
-# KA 
+# Uttar pradesh 
 
-![ka](plots/ka.png){width=60%}
+![](plots/Uttar Pradesh.png){width=70%}
 
 
-# HR 
+# Haryana 
 
-![hr](plots/hr.png){width=60%}
+![](plots/Haryana.png){width=70%}
 
 
-# GJ 
+# Bihar 
 
-![gj](plots/gj.png){width=60%}
+![](plots/Bihar.png){width=70%}
 
 
-# BR 
+# Puducherry 
 
-![br](plots/br.png){width=60%}
+![](plots/Puducherry.png){width=70%}
 
 
-# MZ 
+# Gujarat 
 
-![mz](plots/mz.png){width=60%}
+![](plots/Gujarat.png){width=70%}
 
 
-# TR 
+# Arunachal pradesh 
 
-![tr](plots/tr.png){width=60%}
+![](plots/Arunachal Pradesh.png){width=70%}
 
 
-# RJ 
+# Ladakh 
 
-![rj](plots/rj.png){width=60%}
+![](plots/Ladakh.png){width=70%}
 
 
-# GA 
+# Kerala 
 
-![ga](plots/ga.png){width=60%}
+![](plots/Kerala.png){width=70%}
 
 
-# JK 
+# Chandigarh 
 
-![jk](plots/jk.png){width=60%}
+![](plots/Chandigarh.png){width=70%}
 
 
-# DL 
+# Madhya pradesh 
 
-![dl](plots/dl.png){width=60%}
+![](plots/Madhya Pradesh.png){width=70%}
 
 
-# WB 
+# Andaman and nicobar islands 
 
-![wb](plots/wb.png){width=60%}
+![](plots/Andaman and Nicobar Islands.png){width=70%}
 
 
-# MP 
+# Goa 
 
-![mp](plots/mp.png){width=60%}
+![](plots/Goa.png){width=70%}
 
 
-# MN 
+# Delhi 
 
-![mn](plots/mn.png){width=60%}
+![](plots/Delhi.png){width=70%}
 
 
-# CH 
+# Himachal pradesh 
 
-![ch](plots/ch.png){width=60%}
+![](plots/Himachal Pradesh.png){width=70%}
 
 
-# TN 
+# Manipur 
 
-![tn](plots/tn.png){width=60%}
+![](plots/Manipur.png){width=70%}
 
 
-# PY 
+# Andhra pradesh 
 
-![py](plots/py.png){width=60%}
+![](plots/Andhra Pradesh.png){width=70%}
 
 

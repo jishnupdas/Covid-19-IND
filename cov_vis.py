@@ -16,8 +16,8 @@ here = os.getcwd()
 
 #git clone "https://github.com/datameet/covid19"
 
-os.system('../covid19/') # going into the data directory
-os.system('git fetch')  # updating the data (fteching updates from the source repo)
+#os.system('../covid19/') # going into the data directory
+#os.system('git fetch')  # updating the data (fteching updates from the source repo)
 #https://github.com/datameet/covid19
 
 os.chdir(here)
@@ -38,6 +38,41 @@ df['value.report_time'] = pd.to_datetime(df['value.report_time'])
 #%%
 
 states = list(set(df['value.state']))
+
+# setting up full names of states
+state_dict  = {}
+state_dict['ut'] = "Uttarakhand"
+state_dict['ct'] = "Chhattisgarh"
+state_dict['tr'] = "Tripura"
+state_dict['pb'] = "Punjab"
+state_dict['jh'] = "Jharkhand"
+state_dict['or'] = "Odisha"
+state_dict['ka'] = "Karnataka"
+state_dict['mh'] = "Maharashtra"
+state_dict['tn'] = "Tamil Nadu"
+state_dict['as'] = "Assam"
+state_dict['jk'] = "Jammu and Kashmir"
+state_dict['mz'] = "Mizoram"
+state_dict['rj'] = "Rajasthan"
+state_dict['tg'] = "Telangana"
+state_dict['wb'] = "West Bengal"
+state_dict['up'] = "Uttar Pradesh"
+state_dict['hr'] = "Haryana"
+state_dict['br'] = "Bihar"
+state_dict['py'] = "Puducherry"
+state_dict['gj'] = "Gujarat"
+state_dict['ar'] = "Arunachal Pradesh"
+state_dict['la'] = "Ladakh"
+state_dict['kl'] = "Kerala"
+state_dict['ch'] = "Chandigarh"
+state_dict['mp'] = "Madhya Pradesh"
+state_dict['an'] = "Andaman and Nicobar Islands"
+state_dict['ga'] = "Goa"
+state_dict['dl'] = "Delhi"
+state_dict['hp'] = "Himachal Pradesh"
+state_dict['mn'] = "Manipur"
+state_dict['ap'] = "Andhra Pradesh"
+
 #%%
 def plot_state_data(state):
 
@@ -81,6 +116,8 @@ def plot_summary(state):
 
     Filter = df[(df['value.state'] == state)]
 
+    state  = state_dict[state] # getting the full form
+
     fl = Filter.loc[Filter.groupby(lambda x: Filter['value.report_time'][x].day)['value.report_time'].idxmax()]
     fl = fl.sort_values(['value.report_time'])
 
@@ -100,9 +137,13 @@ def plot_summary(state):
 #    lst = list(deth)
 #    daily_deth = [0]+[lst[i]-lst[i-1] for i in range(1,len(lst))]
 
+    try:
+        growthrate = (daily_conf[-1]-daily_conf[-2])*100/daily_conf[-2]
+    except:
+        growthrate = 0
     plt.style.use('seaborn')
     fig, ax = plt.subplots(3, 1,figsize=(8,8),sharex=True,
-                           gridspec_kw={'height_ratios': [2, 2.5, 1]})
+                           gridspec_kw={'height_ratios': [2.1, 2.4, 1]})
 
     ax[0].set_title(state.upper(),fontsize=20)
     ax[0].plot(time,conf,'C0-o',lw=5,ms=10,
@@ -111,10 +152,11 @@ def plot_summary(state):
                label='recovered cases ({})'.format(cure.max()))
     ax[0].plot(time,deth,'C2-v',alpha=.6,
                label='deaths ({})'.format(deth.max()))
-    ax[0].fill_between(time,conf,cure,facecolor='C0',alpha=0.1)
     ax[0].fill_between(time,cure,deth,facecolor='C1',alpha=0.2)
     ax[0].fill_between(time,deth,facecolor='C2',alpha=0.2,
                        label='fatality rate ({:0.2f}%)'.format(fatality_rate))
+    ax[0].fill_between(time,conf,cure,facecolor='C0',alpha=0.1,
+                       label='Growth rate ({:.2f}%)'.format(growthrate))
 #    ax[0].set_xlabel('Date')
     ax[0].set_ylabel('Numbers')
     ax[0].set_ylim(0,800)
@@ -132,11 +174,12 @@ def plot_summary(state):
                label='deaths ({})'.format(deth.max()))
     ax[1].fill_between(time,conf,cure,facecolor='C0',alpha=0.1)
     ax[1].fill_between(time,cure,deth,facecolor='C1',alpha=0.2)
-    ax[1].fill_between(time,deth,facecolor='C2',alpha=0.2,
-                       label='fatality rate ({:0.2f})'.format(deth.max()*100/conf.max()))
+    ax[1].fill_between(time,deth,facecolor='C2',alpha=0.2)
 #    ax[1].set_xlabel('Date')
     ax[1].set_ylabel('Numbers')
     ax[1].set_yscale('symlog')
+    ax[1].set_yticks([10**i for i in range(4)])
+    ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(4)])
     ax[1].set_ylim(0,10**4)
     ax[1].set_xticks(['2020-03-15','2020-03-30','2020-04-14'])
     ax[1].set_xlim('2020-03-08 12:00:00+0530','2020-04-10 12:00:00+0530')
@@ -152,17 +195,20 @@ def plot_summary(state):
     plt.savefig(f'plots/{state}.png',dpi=150)
     plt.show()
     plt.close()
+
+#%%
+plot_summary('kl')
+
 #%%
 with open('Intro.md','r') as intro:
     with open('README.md','w') as outfile:
         outfile.write(intro.read())
         for state in states:
 #            plot_summary(state)
-            ST = state.upper()
-            outfile.write(f'# {ST} \n\n![{state}](plots/{state}.png){{width=60%}}\n\n\n')
+            state  = state_dict[state]
+            ST = state.capitalize()
+            outfile.write(f'# {ST} \n\n![](plots/{state}.png){{width=70%}}\n\n\n')
 
-#%%
-#plot_summary('kl')
 #%%
 '''test code'''
 #state = 'kl'
