@@ -149,7 +149,7 @@ def plot_summary(state):
     ax[2].set_xlabel('Date')
 
     fig.tight_layout()
-    plt.savefig(f'plots/{state}.png',dpi=120)
+    plt.savefig(f'plots/{state}.png',dpi=150)
     plt.show()
     plt.close()
 #%%
@@ -157,9 +157,9 @@ with open('Intro.md','r') as intro:
     with open('README.md','w') as outfile:
         outfile.write(intro.read())
         for state in states:
-#            plot_summary(state)
+            plot_summary(state)
             ST = state.upper()
-            outfile.write(f'## {ST} \n![{state}](plots/{state}.png)\n\n')
+            outfile.write(f'## {ST} \n![{state}](plots/{state}.png){{width=50%}}\n\n')
 
 #%%
 #plot_summary('kl')

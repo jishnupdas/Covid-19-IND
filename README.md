@@ -76,6 +76,9 @@ Each state's data is visualized in three different plots
 ## MZ 
 ![mz](plots/mz.png){width=50%}
 
+## TR 
+![tr](plots/tr.png){width=50%}
+
 ## RJ 
 ![rj](plots/rj.png){width=50%}
 
