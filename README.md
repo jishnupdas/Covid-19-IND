@@ -10,7 +10,7 @@ header-includes: |
 # Covid-19 Statewise data for India
 
 ### Credits : [Data Source https://github.com/datameet/covid19](https://github.com/datameet/covid19)
-
+### [jishnupdas](https://github.com/jishnupdas/Covid-19-IND)
 ---
 
 # This repo provides a simple visualisation for Covid-19 information for each of the indian states
