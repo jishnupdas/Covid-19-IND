@@ -26,100 +26,16 @@ Each state's data is visualized in three different plots
 - Number of cases reported per day in each state
 
 
-# Uttarakhand 
-
-
-![](plots/ut.png)
-
-
-# Chhattisgarh 
-
-
-![](plots/ct.png)
-
-
-# Tripura 
-
-
-![](plots/tr.png)
-
-
-# Punjab 
-
-
-![](plots/pb.png)
-
-
-# Jharkhand 
-
-
-![](plots/jh.png)
-
-
-# Odisha 
-
-
-![](plots/or.png)
-
-
 # Karnataka 
 
 
 ![](plots/ka.png)
 
 
-# Maharashtra 
+# Delhi 
 
 
-![](plots/mh.png)
-
-
-# Tamil Nadu 
-
-
-![](plots/tn.png)
-
-
-# Assam 
-
-
-![](plots/as.png)
-
-
-# Jammu and Kashmir 
-
-
-![](plots/jk.png)
-
-
-# Mizoram 
-
-
-![](plots/mz.png)
-
-
-# Rajasthan 
-
-
-![](plots/rj.png)
-
-
-# Telangana 
-
-
-![](plots/tg.png)
-
-
-# West Bengal 
-
-
-![](plots/wb.png)
-
-
-# Uttar Pradesh 
-
-
-![](plots/up.png)
+![](plots/dl.png)
 
 
 # Haryana 
@@ -128,16 +44,34 @@ Each state's data is visualized in three different plots
 ![](plots/hr.png)
 
 
-# Bihar 
+# Uttar Pradesh 
 
 
-![](plots/br.png)
+![](plots/up.png)
 
 
-# Puducherry 
+# Odisha 
 
 
-![](plots/py.png)
+![](plots/or.png)
+
+
+# Himachal Pradesh 
+
+
+![](plots/hp.png)
+
+
+# Chandigarh 
+
+
+![](plots/ch.png)
+
+
+# Assam 
+
+
+![](plots/as.png)
 
 
 # Gujarat 
@@ -152,28 +86,46 @@ Each state's data is visualized in three different plots
 ![](plots/ar.png)
 
 
-# Ladakh 
+# Bihar 
 
 
-![](plots/la.png)
+![](plots/br.png)
 
 
-# Kerala 
+# Tripura 
 
 
-![](plots/kl.png)
+![](plots/tr.png)
 
 
-# Chandigarh 
+# Uttarakhand 
 
 
-![](plots/ch.png)
+![](plots/ut.png)
+
+
+# Manipur 
+
+
+![](plots/mn.png)
+
+
+# Rajasthan 
+
+
+![](plots/rj.png)
 
 
 # Madhya Pradesh 
 
 
 ![](plots/mp.png)
+
+
+# Tamil Nadu 
+
+
+![](plots/tn.png)
 
 
 # Andaman and Nicobar Islands 
@@ -188,27 +140,75 @@ Each state's data is visualized in three different plots
 ![](plots/ga.png)
 
 
-# Delhi 
+# Chhattisgarh 
 
 
-![](plots/dl.png)
-
-
-# Himachal Pradesh 
-
-
-![](plots/hp.png)
-
-
-# Manipur 
-
-
-![](plots/mn.png)
+![](plots/ct.png)
 
 
 # Andhra Pradesh 
 
 
 ![](plots/ap.png)
+
+
+# Mizoram 
+
+
+![](plots/mz.png)
+
+
+# Maharashtra 
+
+
+![](plots/mh.png)
+
+
+# Ladakh 
+
+
+![](plots/la.png)
+
+
+# Telangana 
+
+
+![](plots/tg.png)
+
+
+# Puducherry 
+
+
+![](plots/py.png)
+
+
+# Jharkhand 
+
+
+![](plots/jh.png)
+
+
+# Punjab 
+
+
+![](plots/pb.png)
+
+
+# Jammu and Kashmir 
+
+
+![](plots/jk.png)
+
+
+# Kerala 
+
+
+![](plots/kl.png)
+
+
+# West Bengal 
+
+
+![](plots/wb.png)
 
 

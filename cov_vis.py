@@ -6,6 +6,7 @@ Created on Tue Apr  7 09:42:50 2020
 @author: jishnu
 """
 import os
+import json
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -33,7 +34,13 @@ df = pd.io.json.json_normalize(data['rows']) # getting data from the json file
 # i know its a little convolutedted here (found the solution after 40 minutes of searching :P)
 
 df['value.report_time'] = pd.to_datetime(df['value.report_time'])
+#%%
+data_ind = pd.read_json('../covid19/data/all_totals.json', orient='records')
 
+#data_ind = pd.io.json.json_normalize(data_ind['rows'])
+#with open('../covid19/data/all_totals.json', 'r') as f:
+#    data = json.load(f)
+#df = pd.DataFrame(data)
 #%%
 
 states = list(set(df['value.state']))
@@ -137,7 +144,8 @@ def plot_summary(state):
 #    daily_deth = [0]+[lst[i]-lst[i-1] for i in range(1,len(lst))]
 
     try:
-        growthrate = (daily_conf[-1]-daily_conf[-2])*100/daily_conf[-2]
+        growthrate = ((lst[-1]/lst[-2]) - 1)*100
+#        growthrate = ((daily_conf[-1]/daily_conf[-3])**.33 - 1)*100
     except:
         growthrate = 0
     plt.style.use('seaborn')
@@ -160,7 +168,7 @@ def plot_summary(state):
     ax[0].set_ylabel('Numbers')
     ax[0].set_ylim(0,800)
     ax[0].set_xticks(['2020-03-15','2020-03-30','2020-04-14'])
-    ax[0].set_xlim('2020-03-08 12:00:00+0530','2020-04-10 12:00:00+0530')
+    ax[0].set_xlim('2020-03-08 12:00:00+0530','2020-04-13')
     ax[0].legend(loc=2,fontsize=15,frameon=True,fancybox=True,
                  framealpha=.7,facecolor='white', borderpad=1)
 
@@ -181,13 +189,13 @@ def plot_summary(state):
     ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(4)])
     ax[1].set_ylim(0,10**4)
     ax[1].set_xticks(['2020-03-15','2020-03-30','2020-04-14'])
-    ax[1].set_xlim('2020-03-08 12:00:00+0530','2020-04-10 12:00:00+0530')
+    ax[1].set_xlim('2020-03-08 12:00:00+0530','2020-04-14')
 
     ax[2].set_title('Daily Cases')
     ax[2].bar(time, daily_conf)#,daily_cure,daily_deth)
     ax[2].set_xticks(['2020-03-15','2020-03-30','2020-04-14'])
     ax[2].set_xticklabels(['15 March','30 March','14 April'])
-    ax[2].set_xlim('2020-03-08 12:00:00+0530','2020-04-10 12:00:00+0530')
+    ax[2].set_xlim('2020-03-08 12:00:00+0530','2020-04-14')
     ax[2].set_xlabel('Date')
 
     fig.tight_layout()
@@ -203,11 +211,11 @@ with open('Intro.md','r') as intro:
     with open('README.md','w') as outfile:
         outfile.write(intro.read())
         for state in states:
-#            plot_summary(state)
+            plot_summary(state)
             st     = state
             state  = state_dict[state]
-#            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.png){{width=70%}}\n\n\n')
-            outfile.write(f'# {state} \n\n\n![](plots/{st}.png)\n\n\n')
+            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.png){{width=70%}}\n\n\n')
+#            outfile.write(f'# {state} \n\n\n![](plots/{st}.png)\n\n\n')
 #%%
 '''test code'''
 #state = 'kl'
