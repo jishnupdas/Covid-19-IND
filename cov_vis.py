@@ -153,11 +153,11 @@ def plot_summary(state):
                            gridspec_kw={'height_ratios': [2.1, 2.4, 1]})
 
     ax[0].set_title(state.upper(),fontsize=20)
-    ax[0].plot(time,conf,'C0-o',lw=5,ms=10,
+    ax[0].plot(time, conf, 'C0-o',lw=5,ms=10,
                label='confirmed cases ({})'.format(conf.max()))
-    ax[0].plot(time,cure,'C1-p',lw=4,ms=10,
+    ax[0].plot(time, cure,'C1-p',lw=4,ms=10,
                label='recovered cases ({})'.format(cure.max()))
-    ax[0].plot(time,deth,'C2-v',alpha=.6,
+    ax[0].plot(time, deth,'C2-v',alpha=.6,
                label='deaths ({})'.format(deth.max()))
     ax[0].fill_between(time,cure,deth,facecolor='C1',alpha=0.2)
     ax[0].fill_between(time,deth,facecolor='C2',alpha=0.2,
@@ -211,11 +211,13 @@ with open('Intro.md','r') as intro:
     with open('README.md','w') as outfile:
         outfile.write(intro.read())
         for state in states:
-            plot_summary(state)
+#            plot_summary(state)
             st     = state
             state  = state_dict[state]
             outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.png){{width=70%}}\n\n\n')
 #            outfile.write(f'# {state} \n\n\n![](plots/{st}.png)\n\n\n')
+#        os.system('pandoc README.md -t beamer -o report.pdf')
+
 #%%
 '''test code'''
 #state = 'kl'
