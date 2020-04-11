@@ -166,7 +166,7 @@ def plot_summary(state):
                        label='Growth rate ({:.2f}%)'.format(growthrate))
 #    ax[0].set_xlabel('Date')
     ax[0].set_ylabel('Numbers')
-    ax[0].set_ylim(0,800)
+    #ax[0].set_ylim(0, 800)
     ax[0].set_xticks(['2020-03-15','2020-03-30','2020-04-14'])
     ax[0].set_xlim('2020-03-08 12:00:00+0530','2020-04-13')
     ax[0].legend(loc=2,fontsize=15,frameon=True,fancybox=True,
@@ -211,7 +211,7 @@ with open('Intro.md','r') as intro:
     with open('README.md','w') as outfile:
         outfile.write(intro.read())
         for state in states:
-#            plot_summary(state)
+            plot_summary(state)
             st     = state
             state  = state_dict[state]
             outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.png){{width=70%}}\n\n\n')
