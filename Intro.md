@@ -25,4 +25,7 @@ Each state's data is visualized in three different plots
 - The same time vs cases in a logarithmic scale
 - Number of cases reported per day in each state
 
+# Summary 
+
+![statewise numbers](plots/summary.png)
 

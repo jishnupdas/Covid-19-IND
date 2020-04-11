@@ -25,82 +25,15 @@ Each state's data is visualized in three different plots
 - The same time vs cases in a logarithmic scale
 - Number of cases reported per day in each state
 
+# Summary 
 
-# Uttarakhand 
+![statewise numbers](plots/summary.png)
 
-\centering
-
-![](plots/ut.png){width=70%}
-
-
-# Madhya Pradesh 
+# Bihar 
 
 \centering
 
-![](plots/mp.png){width=70%}
-
-
-# Jammu and Kashmir 
-
-\centering
-
-![](plots/jk.png){width=70%}
-
-
-# Manipur 
-
-\centering
-
-![](plots/mn.png){width=70%}
-
-
-# Maharashtra 
-
-\centering
-
-![](plots/mh.png){width=70%}
-
-
-# Arunachal Pradesh 
-
-\centering
-
-![](plots/ar.png){width=70%}
-
-
-# Mizoram 
-
-\centering
-
-![](plots/mz.png){width=70%}
-
-
-# Delhi 
-
-\centering
-
-![](plots/dl.png){width=70%}
-
-
-# Rajasthan 
-
-\centering
-
-![](plots/rj.png){width=70%}
-
-
-# Telangana 
-
-\centering
-
-![](plots/tg.png){width=70%}
-
-
-# Uttar Pradesh 
-
-\centering
-
-![](plots/up.png){width=70%}
+![](plots/br.png){width=70%}
 
 
 # Jharkhand 
@@ -110,39 +43,11 @@ Each state's data is visualized in three different plots
 ![](plots/jh.png){width=70%}
 
 
-# Himachal Pradesh 
+# Maharashtra 
 
 \centering
 
-![](plots/hp.png){width=70%}
-
-
-# Goa 
-
-\centering
-
-![](plots/ga.png){width=70%}
-
-
-# Tripura 
-
-\centering
-
-![](plots/tr.png){width=70%}
-
-
-# Ladakh 
-
-\centering
-
-![](plots/la.png){width=70%}
-
-
-# Bihar 
-
-\centering
-
-![](plots/br.png){width=70%}
+![](plots/mh.png){width=70%}
 
 
 # Kerala 
@@ -152,18 +57,32 @@ Each state's data is visualized in three different plots
 ![](plots/kl.png){width=70%}
 
 
-# Chandigarh 
+# Uttar Pradesh 
 
 \centering
 
-![](plots/ch.png){width=70%}
+![](plots/up.png){width=70%}
 
 
-# Odisha 
+# Assam 
 
 \centering
 
-![](plots/or.png){width=70%}
+![](plots/as.png){width=70%}
+
+
+# Tripura 
+
+\centering
+
+![](plots/tr.png){width=70%}
+
+
+# Goa 
+
+\centering
+
+![](plots/ga.png){width=70%}
 
 
 # Gujarat 
@@ -180,11 +99,11 @@ Each state's data is visualized in three different plots
 ![](plots/ap.png){width=70%}
 
 
-# Puducherry 
+# Karnataka 
 
 \centering
 
-![](plots/py.png){width=70%}
+![](plots/ka.png){width=70%}
 
 
 # Chhattisgarh 
@@ -194,18 +113,25 @@ Each state's data is visualized in three different plots
 ![](plots/ct.png){width=70%}
 
 
-# Haryana 
+# Himachal Pradesh 
 
 \centering
 
-![](plots/hr.png){width=70%}
+![](plots/hp.png){width=70%}
 
 
-# West Bengal 
+# Delhi 
 
 \centering
 
-![](plots/wb.png){width=70%}
+![](plots/dl.png){width=70%}
+
+
+# Manipur 
+
+\centering
+
+![](plots/mn.png){width=70%}
 
 
 # Tamil Nadu 
@@ -215,11 +141,32 @@ Each state's data is visualized in three different plots
 ![](plots/tn.png){width=70%}
 
 
-# Assam 
+# Telangana 
 
 \centering
 
-![](plots/as.png){width=70%}
+![](plots/tg.png){width=70%}
+
+
+# Arunachal Pradesh 
+
+\centering
+
+![](plots/ar.png){width=70%}
+
+
+# Uttarakhand 
+
+\centering
+
+![](plots/ut.png){width=70%}
+
+
+# Punjab 
+
+\centering
+
+![](plots/pb.png){width=70%}
 
 
 # Andaman and Nicobar Islands 
@@ -229,17 +176,73 @@ Each state's data is visualized in three different plots
 ![](plots/an.png){width=70%}
 
 
-# Karnataka 
+# Ladakh 
 
 \centering
 
-![](plots/ka.png){width=70%}
+![](plots/la.png){width=70%}
 
 
-# Punjab 
+# Madhya Pradesh 
 
 \centering
 
-![](plots/pb.png){width=70%}
+![](plots/mp.png){width=70%}
+
+
+# Chandigarh 
+
+\centering
+
+![](plots/ch.png){width=70%}
+
+
+# Rajasthan 
+
+\centering
+
+![](plots/rj.png){width=70%}
+
+
+# Mizoram 
+
+\centering
+
+![](plots/mz.png){width=70%}
+
+
+# Jammu and Kashmir 
+
+\centering
+
+![](plots/jk.png){width=70%}
+
+
+# Haryana 
+
+\centering
+
+![](plots/hr.png){width=70%}
+
+
+# Puducherry 
+
+\centering
+
+![](plots/py.png){width=70%}
+
+
+# Odisha 
+
+\centering
+
+![](plots/or.png){width=70%}
+
+
+# West Bengal 
+
+\centering
+
+![](plots/wb.png){width=70%}
 
 
