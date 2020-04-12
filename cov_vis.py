@@ -11,16 +11,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 #%%
-here = os.getcwd()
 
-
-#git clone "https://github.com/datameet/covid19"
-
+os.system('./data_update.sh')
 #os.system('../covid19/') # going into the data directory
 #os.system('git fetch')  # updating the data (fteching updates from the source repo)
 #https://github.com/datameet/covid19
 
-os.chdir(here)
 #%%
 
 f = '../covid19/data/mohfw.json'
@@ -44,6 +40,8 @@ data_ind = pd.read_json('../covid19/data/all_totals.json', orient='records')
 #%%
 
 states = list(set(df['value.state']))
+
+#states.sort()
 
 # setting up full names of states
 state_dict  = {
@@ -119,8 +117,8 @@ class State:
 
     def get_details(self):
 
-
         details = {'State':self.state,
+                   'code':self.st_abbr,
                    'confirmed':self.conf_count,
                    'cured':self.cure_count,
                    'deaths':self.deth_count,
@@ -240,18 +238,6 @@ def plot_summary(state):
 #plot_summary('kl')
 
 #%%
-with open('Intro.md','r') as intro:
-    with open('README.md','w') as outfile:
-        outfile.write(intro.read())
-        for state in states:
-            plot_summary(state)
-            st     = state
-            state  = state_dict[state]
-            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.png){{width=70%}}\n\n\n')
-#            outfile.write(f'# {state} \n\n\n![](plots/{st}.png)\n\n\n')
-#        os.system('pandoc README.md -t beamer -o report.pdf')
-
-#%%
 details = []
 for st in states:
     state_obj = State(df,st)
@@ -261,44 +247,25 @@ db = pd.DataFrame(details)
 db = db.sort_values(['confirmed'])
 db['Total'] = db.confirmed+db.cured+db.deaths
 
-#kerala = State(df,'kl')
-#kerala.get_details()
-
-#%%
 cases  = list(db.confirmed)
 cured  = list(db.cured)
 death  = list(db.deaths)
-tot = list(db.Total)
+tot    = list(db.Total)
 
+
+#%%
 ax = db[['State','deaths', 'confirmed', 'cured']].plot(kind='barh',
                                    figsize=(10,16), width=.5, fontsize=13,
-                                   colors=['C2', 'C0', 'C1'], stacked=True,
-                                   align='center')
+                                   colors=['C2', 'C0', 'C1'], stacked=True)
 for i in range(len(tot)):
     ax.text(tot[i]+5,i-.15,'{:<4d}'.format(cases[i]), fontsize=12)
     ax.text(tot[i]+120,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
     ax.text(tot[i]+120,i-.4,'{}'.format(death[i]), fontsize=9, color='r')
 
-ax.set_title('Statewise cases')
+ax.set_title('Statewise cases', fontsize=14)
 ax.set_xlim(0,max(tot)+400)
 ax.set_alpha(0.8)
 ax.set_yticklabels(list(db.State))
-
-# create a list to collect the plt.patches data
-#patch = [(i.get_width(),i.get_y()) for i in ax.patches]
-
-#for i in range(len(tot)):
-#    if tot[i] >= 100:
-#        ax.text(death[i]+2,i-.15,death[i], fontsize=12, color='white')
-##        ax.text(death[i]+2,i,death[i], fontsize=11, color='white')
-##        ax.text(tot[i]+5,i,cases[i], fontsize=11)
-#    else:
-#        ax.text(tot[i]+5,i-.15,cases[i], fontsize=11)
-
-
-#for v in db.Total:
-#    # get_width pulls left or right; get_y pushes up or down
-#    ax.text(i.get_width()+4, i.get_y(), i.get_width(), fontsize=10.5)
 
 ax.legend(loc=5,fontsize=12,frameon=True,fancybox=True,
          framealpha=.7,facecolor='white', borderpad=1)
@@ -306,6 +273,20 @@ ax.legend(loc=5,fontsize=12,frameon=True,fancybox=True,
 plt.savefig(f'plots/summary.png',dpi=150)
 plt.show()
 plt.close()
+
+
+#%%
+with open('Intro.md','r') as intro:
+    with open('README.md','w') as outfile:
+        outfile.write(intro.read())
+        for state in states:
+            plot_summary(state)
+            st     = state
+            state  = state_dict[state]
+            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.png){{width=70%}}\n\n\n')
+#            outfile.write(f'# {state} \n\n\n![](plots/{st}.png)\n\n\n')
+
+os.system('pandoc README.md -t beamer -o report.pdf')
 
 #%%
 '''test code'''
