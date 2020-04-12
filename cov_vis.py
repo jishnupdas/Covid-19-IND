@@ -7,7 +7,6 @@ Created on Tue Apr  7 09:42:50 2020
 """
 import os
 import json
-import itertools
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -200,22 +199,30 @@ states_list = list(set(df['value.state']))
 state_objects = []
 
 for st in states_list:
-    state_obj = State(df,st)
-    name      = {'object':state_obj}
-    detail    = state_obj.get_details()
-    detail.update(name)
+    state_obj = State(df,st) # creating an object for each individual state
+    name      = {'object':state_obj} # putting that into a dictionary
+    detail    = state_obj.get_details() # this returns a dictionary with details like cases, counts etc..
+    detail.update(name) # merging both the dictionaries
 
-    state_obj.plot_summary()
+    state_obj.plot_summary() #creating plot for each state
 
-    state_objects.append(detail)
+    state_objects.append(detail) # appending the dictionaries into a list
 
 
-db = pd.DataFrame([dict(itertools.islice(state.items(), 5)) for state in state_objects])
-db = db.sort_values(['confirmed'])
-db['Total'] = db.confirmed+db.cured+db.deaths
+db1 = pd.DataFrame(state_objects) # creating a dataframe from the list of dictionaries
+db1 = db1.sort_values(['confirmed']) # sorting by confirmed cases
+db1['Total'] = db1.confirmed+db1.cured+db1.deaths
 
 
 #%%
+India = {
+'cases':sum(db1.confirmed),
+'cured':sum(db1.cured),
+'death':sum(db1.deaths)
+}
+
+db = db1[(db1['confirmed'] >= 50)]
+
 cases  = list(db.confirmed)
 cured  = list(db.cured)
 death  = list(db.deaths)
@@ -227,9 +234,10 @@ ax = db[['State','deaths', 'confirmed', 'cured']].plot(kind='barh',
 for i in range(len(tot)):
     ax.text(tot[i]+5,i-.15,'{:<4d}'.format(cases[i]), fontsize=12)
     ax.text(tot[i]+140,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
-    ax.text(tot[i]+140,i-.4,'{}'.format(death[i]), fontsize=9, color='r')
+    ax.text(tot[i]+140,i-.25,'{}'.format(death[i]), fontsize=9, color='r')
 
-ax.set_title('Statewise cases', fontsize=14)
+ax.set_title('India \n(Cases:{}, Cured:{}, deaths:{})'.format(*list(India.values())),
+                     fontsize=14)
 ax.set_xlim(0,max(tot)+400)
 ax.set_alpha(0.8)
 ax.set_yticklabels(list(db.State))
