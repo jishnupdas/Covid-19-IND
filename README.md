@@ -7,9 +7,6 @@ header-includes: |
     \input{theme1.tex}
 ---
 
-# Covid-19 Statewise data for India
-
-
 # This repo provides a simple visualisation for Covid-19 information for each of the indian states
 
 *This data is sourced mainly from Govt and news agencies. The information presented here is publicly avialable*

@@ -25,7 +25,7 @@ f = '../covid19/data/mohfw.json'
 data = pd.read_json(f) # reading the json file
 
 df = pd.io.json.json_normalize(data['rows']) # getting data from the json file
-# i know its a little convolutedted here (found the solution after 40 minutes of searching :P)
+# i know its a little convoluted here (found the solution after 40 minutes of searching :P)
 
 df['value.report_time'] = pd.to_datetime(df['value.report_time'])
 
@@ -120,11 +120,14 @@ class State:
         return details
 
     def plot_summary(self):
+        'plotting the results in a multipanel plot'
 
         plt.style.use('seaborn')
         fig, ax = plt.subplots(3, 1,figsize=(8,8),sharex=True,
                             gridspec_kw={'height_ratios': [2.1, 2.4, 1]})
 
+        'top panel showing counts vs time with a legend'
+        '----------------------------------------------'
         ax[0].set_title(self.state.upper(),fontsize=20)
 
         ax[0].plot(self.time, self.conf, 'C0-o',lw=5,ms=10,
@@ -151,7 +154,8 @@ class State:
         ax[0].legend(loc=2,fontsize=15,frameon=True,fancybox=True,
                     framealpha=.7,facecolor='white', borderpad=1)
 
-
+        'middle panel with log scale of counts vs time'
+        '----------------------------------------------'
         ax[1].set_title("Log scale")
 
         ax[1].plot(self.time,self.conf,'C0-o',lw=5,ms=10)
@@ -172,6 +176,8 @@ class State:
         ax[1].set_ylim(0,10**4)
 
 
+        'bottom panel showing daily counts'
+        '----------------------------------------------'
         ax[2].set_title('Daily Cases')
 
         ax[2].bar(self.time, self.daily_conf)
