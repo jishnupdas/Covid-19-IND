@@ -149,7 +149,7 @@ class State:
 
     #    ax[0].set_xlabel('Date')
         ax[0].set_ylabel('Numbers')
-        #ax[0].set_ylim(0, 800)
+        ax[0].set_ylim(0, self.conf_count*1.1)
 
         ax[0].legend(loc=2,fontsize=15,frameon=True,fancybox=True,
                     framealpha=.7,facecolor='white', borderpad=1)
@@ -226,8 +226,8 @@ ax = db[['State','deaths', 'confirmed', 'cured']].plot(kind='barh',
                                    color=['C2', 'C0', 'C1'], stacked=True)
 for i in range(len(tot)):
     ax.text(tot[i]+5,i-.15,'{:<4d}'.format(cases[i]), fontsize=12)
-    ax.text(tot[i]+120,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
-    ax.text(tot[i]+120,i-.4,'{}'.format(death[i]), fontsize=9, color='r')
+    ax.text(tot[i]+140,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
+    ax.text(tot[i]+140,i-.4,'{}'.format(death[i]), fontsize=9, color='r')
 
 ax.set_title('Statewise cases', fontsize=14)
 ax.set_xlim(0,max(tot)+400)
