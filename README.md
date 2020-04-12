@@ -169,18 +169,18 @@ Each state's data is visualized in three different plots
 ![](plots/as.png){width=70%}
 
 
-# Chandigarh 
-
-\centering
-
-![](plots/ch.png){width=70%}
-
-
 # Chhattisgarh 
 
 \centering
 
 ![](plots/ct.png){width=70%}
+
+
+# Chandigarh 
+
+\centering
+
+![](plots/ch.png){width=70%}
 
 
 # Jharkhand 
