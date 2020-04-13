@@ -152,8 +152,8 @@ class State:
 
         #ax[0].set_xlabel('Date')
         ax[0].set_ylabel('Numbers')
-        ax[0].set_ylim(0, 2000)
-#        ax[0].set_ylim(0, self.conf_count*1.1)
+#        ax[0].set_ylim(0, 2000)
+        ax[0].set_ylim(0, self.conf_count*1.1)
 
         ax[0].legend(loc=2,fontsize=15,frameon=True,fancybox=True,
                     framealpha=.7,facecolor='white', borderpad=1)
@@ -216,7 +216,7 @@ for st in states_list:
     detail    = state_obj.get_details() # this returns a dictionary with details like cases, counts etc..
     detail.update(name) # merging both the dictionaries
 
-    #state_obj.plot_summary() #creating plot for each state
+    state_obj.plot_summary() #creating plot for each state
 
     state_objects.append(detail) # appending the dictionaries into a list
 
