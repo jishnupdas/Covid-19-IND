@@ -245,6 +245,7 @@ ax.set_yticklabels(list(db.State))
 ax.legend(loc=5,fontsize=12,frameon=True,fancybox=True,
          framealpha=.7,facecolor='white', borderpad=1)
 
+plt.tight_layout()
 plt.savefig(f'plots/summary.png',dpi=150)
 plt.show()
 plt.close()
