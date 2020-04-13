@@ -63,6 +63,7 @@ state_dict  = {
 'hp':"Himachal Pradesh",
 'mn':"Manipur",
 'ap':"Andhra Pradesh",
+'nl':"Nagaland"
 }
 
 #%%
@@ -204,30 +205,31 @@ for st in states_list:
     detail    = state_obj.get_details() # this returns a dictionary with details like cases, counts etc..
     detail.update(name) # merging both the dictionaries
 
-    state_obj.plot_summary() #creating plot for each state
+    #state_obj.plot_summary() #creating plot for each state
 
     state_objects.append(detail) # appending the dictionaries into a list
 
 
-db1 = pd.DataFrame(state_objects) # creating a dataframe from the list of dictionaries
-db1 = db1.sort_values(['confirmed']) # sorting by confirmed cases
-db1['Total'] = db1.confirmed+db1.cured+db1.deaths
+db = pd.DataFrame(state_objects) # creating a dataframe from the list of dictionaries
+db = db.sort_values(['confirmed']) # sorting by confirmed cases
+db['Total'] = db.confirmed+db.cured+db.deaths
 
 
 #%%
 India = {
-'cases':sum(db1.confirmed),
-'cured':sum(db1.cured),
-'death':sum(db1.deaths)
+'cases':sum(db.confirmed),
+'cured':sum(db.cured),
+'death':sum(db.deaths)
 }
 
-db = db1[(db1['confirmed'] >= 50)]
+db = db[(db['confirmed'] >= 50)]
 
 cases  = list(db.confirmed)
 cured  = list(db.cured)
 death  = list(db.deaths)
 tot    = list(db.Total)
 
+plt.style.use('seaborn')
 ax = db[['State','deaths', 'confirmed', 'cured']].plot(kind='barh',
                                    figsize=(10,16), width=.5, fontsize=13,
                                    color=['C2', 'C0', 'C1'], stacked=True)
@@ -252,6 +254,11 @@ plt.close()
 
 
 #%%
+
+db = pd.DataFrame(state_objects) # creating a dataframe from the list of dictionaries
+db = db.sort_values(['confirmed']) # sorting by confirmed cases
+db['Total'] = db.confirmed+db.cured+db.deaths
+
 states_list = list(db.code)[::-1]
 
 with open('README.md','r') as intro:
