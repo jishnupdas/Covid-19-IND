@@ -74,7 +74,7 @@ class State:
     def __init__(self, df, state, db=None, st_abbr=None, time=None,
                  conf=None, cure=None, deth=None, growthrate=None,
                  conf_count=None,cure_count=None, deth_count=None,
-                 fatality_rate=None,
+                 fatality_rate=None, plot_flag=None,
                  daily_conf=None, daily_cure=None, daily_death=None):
 
         '''Initializing the values'''
@@ -108,6 +108,8 @@ class State:
         except:
             self.growthrate = 0
 
+        self.plot_flag = plot_flag
+
     def get_details(self):
 
         details = {'State':self.state,
@@ -123,12 +125,13 @@ class State:
         'plotting the results in a multipanel plot'
 
         plt.style.use('seaborn')
-        fig, ax = plt.subplots(3, 1,figsize=(8,8),sharex=True,
+        fig, ax = plt.subplots(3, 1,figsize=(9,8),sharex=True,
                             gridspec_kw={'height_ratios': [2.1, 2.4, 1]})
 
         'top panel showing counts vs time with a legend'
         '----------------------------------------------'
-        ax[0].set_title(self.state.upper(),fontsize=20)
+        ax[0].set_title('{} \n({})'.format(self.state.upper(),max(self.time)),
+                        fontsize=15)
 
         ax[0].plot(self.time, self.conf, 'C0-o',lw=5,ms=10,
                 label='confirmed cases ({})'.format(self.conf_count))
@@ -147,9 +150,10 @@ class State:
         ax[0].fill_between(self.time,self.conf,self.cure,facecolor='C0',alpha=0.1,
                         label='Growth rate ({:.2f}%)'.format(self.growthrate))
 
-    #    ax[0].set_xlabel('Date')
+        #ax[0].set_xlabel('Date')
         ax[0].set_ylabel('Numbers')
-        ax[0].set_ylim(0, self.conf_count*1.1)
+        ax[0].set_ylim(0, 2000)
+#        ax[0].set_ylim(0, self.conf_count*1.1)
 
         ax[0].legend(loc=2,fontsize=15,frameon=True,fancybox=True,
                     framealpha=.7,facecolor='white', borderpad=1)
@@ -188,8 +192,15 @@ class State:
         ax[2].set_xlabel('Date')
 
         fig.tight_layout()
-        plt.savefig(f'plots/{st}.png',dpi=150)
-       #plt.show()
+
+        if self.plot_flag==None:
+            plt.savefig(f'plots/{st}.png',dpi=150)
+        elif self.plot_flag==1:
+            plt.savefig(f't_plot/{self.st_abbr}_{max(self.time).date()}.png',dpi=150)
+        else:
+            pass
+
+        plt.show()
         plt.close()
 
 #%%
@@ -214,45 +225,50 @@ db = pd.DataFrame(state_objects) # creating a dataframe from the list of diction
 db = db.sort_values(['confirmed']) # sorting by confirmed cases
 db['Total'] = db.confirmed+db.cured+db.deaths
 
-
-#%%
 India = {
 'cases':sum(db.confirmed),
 'cured':sum(db.cured),
 'death':sum(db.deaths)
 }
 
-db = db[(db['confirmed'] >= 50)]
+#%%
+def plot_bar(db):
+    '''create a stacked horizontal barplot from states' data'''
 
-cases  = list(db.confirmed)
-cured  = list(db.cured)
-death  = list(db.deaths)
-tot    = list(db.Total)
+    db['cases'] = db.confirmed-db.cured-db.deaths
 
-plt.style.use('seaborn')
-ax = db[['State','deaths', 'confirmed', 'cured']].plot(kind='barh',
-                                   figsize=(10,16), width=.5, fontsize=13,
-                                   color=['C2', 'C0', 'C1'], stacked=True)
-for i in range(len(tot)):
-    ax.text(tot[i]+5,i-.15,'{:<4d}'.format(cases[i]), fontsize=12)
-    ax.text(tot[i]+140,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
-    ax.text(tot[i]+140,i-.25,'{}'.format(death[i]), fontsize=9, color='r')
+#    cases  = list(db.cases)
+    cured  = list(db.cured)
+    death  = list(db.deaths)
+    tot    = list(db.confirmed)
 
-ax.set_title('India \n(Cases:{}, Cured:{}, deaths:{})'.format(*list(India.values())),
-                     fontsize=14)
-ax.set_xlim(0,max(tot)+400)
-ax.set_alpha(0.8)
-ax.set_yticklabels(list(db.State))
+    plt.style.use('seaborn')
+    ax = db[['State','deaths', 'cases', 'cured']].plot(kind='barh',
+                                       figsize=(12,16), width=.5, fontsize=13,
+                                       color=['C2', 'C0', 'C1'], stacked=True)
+    for i in range(len(tot)):
+        ax.text(tot[i]+10,i-.1,'{:<4d}'.format(tot[i]), fontsize=12)
+        ax.text(tot[i]+120,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
+        ax.text(tot[i]+120,i-.25,'{}'.format(death[i]), fontsize=9, color='r')
 
-ax.legend(loc=5,fontsize=12,frameon=True,fancybox=True,
-         framealpha=.7,facecolor='white', borderpad=1)
+    ax.set_title('India \n(Cases:{}, Cured:{}, deaths:{})'.format(*list(India.values())),
+                         fontsize=14)
+    ax.set_xlim(0,max(tot)+400)
+    ax.set_alpha(0.8)
 
-plt.tight_layout()
-plt.savefig(f'plots/summary.png',dpi=150)
-plt.show()
-plt.close()
+    ax.set_yticklabels(list(db.State))
 
+    ax.legend(loc=5,fontsize=12,frameon=True,fancybox=True,
+             framealpha=.7,facecolor='white', borderpad=1)
 
+    plt.tight_layout()
+    plt.savefig(f'plots/summary.png',dpi=150)
+    plt.show()
+    plt.close()
+
+#%%
+db5 = db[(db['confirmed'] >= 50)]
+plot_bar(db5)
 #%%
 
 db = pd.DataFrame(state_objects) # creating a dataframe from the list of dictionaries
@@ -279,7 +295,19 @@ os.system('pandoc Intro.md -t beamer -o report.pdf')
 
 #self = State(df,'dl')
 #self.get_details()
+#self.plot_summary()
 #
+##%%
+#dates = pd.date_range(start='3/10/2020', end=pd.to_datetime('today')+pd.Timedelta('2 days'),tz='Indian/Cocos')
+#
+#for d in dates:
+#    self = State(df[(df['value.report_time'] <= d)],'kl',plot_flag=1)
+#    self.get_details()
+#    self.plot_summary()
+#
+#    print(d)
+
+#%%
 #self.growthrate = ((self.daily_conf[-1]/self.daily_conf[-2]) - 1)*100
 #
 #print(self.daily_conf)
@@ -289,80 +317,4 @@ os.system('pandoc Intro.md -t beamer -o report.pdf')
 #
 #print(self.growthrate)
 
-#%%
-#
-#kerala = State(df,'kl')
-#kerala.get_details()
-#kerala.plot_summary()
-
-#state = 'kl'
-#Filter = df[(df['value.state'] == state)]
-#
-#fl = Filter.loc[Filter.groupby(lambda x: Filter['value.report_time'][x].day)['value.report_time'].idxmax()]
-#fl = fl.sort_values(['value.report_time'])
-##plt.style.use('seaborn')
-##plt.figure(figsize=(12,8))
-##plt.title(state.upper(),fontsize=20)
-##plt.plot(fl['value.report_time'],fl['value.confirmed'],'-o')
-##plt.xlim('2020-03-08 12:00:00+0530','2020-04-10 12:00:00+0530')
-##plt.show()
-##plt.close()
-#
-#lst = list(fl['value.confirmed'])
-#daily_cases = [0]+[lst[i]-lst[i-1] for i in range(1,len(lst))]
-#
-#time = fl['value.report_time']
-#conf = fl['value.confirmed']
-#cure = fl['value.cured']
-#deth = fl['value.death']
-
-
-#%%
-#plt.style.use('seaborn')
-#plt.figure(figsize=(10,10))
-#plt.title(state.upper(),fontsize=20)
-#plt.plot(time,conf,'C0-o',lw=5,ms=10,
-#         label='confirmed cases ({})'.format(conf.max()))
-#plt.plot(time,cure,'C1-p',lw=4,ms=10,
-#         label='recovered cases ({})'.format(cure.max()))
-#plt.plot(time,deth,'C2-v',alpha=.6,
-#         label='deaths ({})'.format(deth.max()))
-#plt.fill_between(time,conf,cure,facecolor='C0',alpha=0.1)
-#plt.fill_between(time,cure,deth,facecolor='C1',alpha=0.2)
-#plt.fill_between(time,deth,facecolor='C2',alpha=0.2,
-#                 label='fatality rate ({:0.2f})'.format(deth.max()*100/conf.max()))
-#plt.xlabel('Date')
-#plt.ylabel('Numbers')
-#plt.ylim(0,800)
-##plt.plot(time,daily_cases,'-o')
-##plt.bar(time, daily_cases)
-#plt.xticks(['2020-03-15','2020-03-30','2020-04-14'],fontsize=13)
-#plt.xlim('2020-03-08 12:00:00+0530','2020-04-10 12:00:00+0530')
-#plt.legend(loc=2,fontsize=15)
-##plt.sharex(True)
-#
-#plt.subplot(212)
-#plt.title("Log scale")
-#plt.plot(time,conf,'C0-o',lw=5,ms=10,
-#         label='confirmed cases ({})'.format(conf.max()))
-#plt.plot(time,cure,'C1-p',lw=4,ms=10,
-#         label='recovered cases ({})'.format(cure.max()))
-#plt.plot(time,deth,'C2-v',alpha=.6,
-#         label='deaths ({})'.format(deth.max()))
-#plt.fill_between(time,conf,cure,facecolor='C0',alpha=0.1)
-#plt.fill_between(time,cure,deth,facecolor='C1',alpha=0.2)
-#plt.fill_between(time,deth,facecolor='C2',alpha=0.2,
-#                 label='fatality rate ({:0.2f})'.format(deth.max()*100/conf.max()))
-#plt.xlabel('Date')
-#plt.ylabel('Numbers')
-#plt.yscale('symlog')
-#plt.ylim(0,10**4)
-#plt.xticks(['2020-03-15','2020-03-30','2020-04-14'])
-#plt.xlim('2020-03-08 12:00:00+0530','2020-04-10 12:00:00+0530')
-##plt.legend(loc=2,fontsize=15)
-##plt.sharex(True)
-#
-#plt.tight_layout()
-#plt.show()
-#plt.close()
 
