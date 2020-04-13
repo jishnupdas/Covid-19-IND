@@ -188,7 +188,7 @@ class State:
 
         fig.tight_layout()
         plt.savefig(f'plots/{st}.png',dpi=150)
-        plt.show()
+       #plt.show()
         plt.close()
 
 #%%
