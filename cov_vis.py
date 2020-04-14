@@ -6,29 +6,28 @@ Created on Tue Apr  7 09:42:50 2020
 @author: jishnu
 """
 import os
-import json
-import pytz
+import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 
 #%%
 
-os.system('./data_update.sh')
-os.system('./fetch_data.sh')
+#os.system('./data_update.sh')
+#os.system('./fetch_data.sh')
 #os.system('../covid19/') # going into the data directory
 #os.system('git fetch')  # updating the data (fteching updates from the source repo)
 #https://github.com/datameet/covid19
 
 #%%
 
-f = '../covid19/data/mohfw.json'
+f = 'data/mohfw.json'
 
 data = pd.read_json(f) # reading the json file
 
 df = pd.io.json.json_normalize(data['rows']) # getting data from the json file
 # i know its a little convoluted here (found the solution after 40 minutes of searching :P)
-
-df['value.report_time'] = pd.to_datetime(df['value.report_time'])
+#
+#df['value.report_time'] = pd.to_datetime(df['value.report_time'])
 
 
 #%%
@@ -158,7 +157,7 @@ class State:
 
         #ax[0].set_xlabel('Date')
         ax[0].set_ylabel('Numbers')
-#        ax[0].set_ylim(0, 2000)
+        #ax[0].set_ylim(0, 2000)
         ax[0].set_ylim(0, self.conf_count*1.1)
 
         ax[0].legend(loc=2,fontsize=15,frameon=True,fancybox=True,
@@ -200,7 +199,7 @@ class State:
         fig.tight_layout()
 
         if self.plot_flag==None:
-            plt.savefig(f'plots/{st}.png',dpi=150)
+            plt.savefig(f'plots/{self.st_abbr}.png',dpi=150)
         elif self.plot_flag==1:
             plt.savefig(f't_plot/{self.st_abbr}_{max(self.time).date()}.png',dpi=150)
         else:
@@ -320,11 +319,12 @@ IN.get_details()
 IN.plot_summary()
 #%%
 
-#self = State(df,'dl')
-#self.get_details()
-#self.plot_summary()
+self = State(df,'dl')
+self.get_details()
+self.plot_summary()
+
 #
-##%%
+#%%
 #dates = pd.date_range(start='3/10/2020', end=pd.to_datetime('today')+pd.Timedelta('2 days'),tz='Indian/Cocos')
 #
 #for d in dates:
