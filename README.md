@@ -23,6 +23,9 @@ Each state's data is visualized in three different plots
 
 ![statewise numbers](plots/summary.png)
 
+# India
+
+![](plots/ind.png)
 
 # Report
 
