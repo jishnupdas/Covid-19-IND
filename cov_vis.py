@@ -27,7 +27,7 @@ data = pd.read_json(f) # reading the json file
 df = pd.io.json.json_normalize(data['rows']) # getting data from the json file
 # i know its a little convoluted here (found the solution after 40 minutes of searching :P)
 #
-#df['value.report_time'] = pd.to_datetime(df['value.report_time'])
+df['value.report_time'] = pd.to_datetime(df['value.report_time'])
 
 
 #%%
@@ -87,9 +87,13 @@ class State:
 
         Filter = df[(df['value.state'] == self.st_abbr)]
 
-        #self.db = Filter.loc[Filter.groupby(lambda x: Filter['value.report_time'][x].day)['value.report_time'].idxmax()]
-        self.db = Filter
-        self.db['value.report_time'] = pd.to_datetime(self.db['value.report_time'],utc=True)
+#        self.db = Filter.loc[Filter.groupby(lambda x: Filter['value.report_time'][x].day)['value.report_time'].idxmax()]
+        self.db = Filter.groupby(pd.to_datetime(Filter['value.report_time']).dt.date).agg(
+                                                {'value.confirmed': 'last',
+                                                 'value.cured':'last',
+                                                 'value.death':'last'}).reset_index()
+#        self.db = Filter
+        self.db['value.report_time'] = pd.to_datetime(self.db['value.report_time'])
         #self.db['value.report_time'] = [t.date() for t in self.db['value.report_time']]
         self.db = self.db.sort_values(['value.report_time'])
         #self.db = self.db.resample('D').sum()
@@ -209,6 +213,14 @@ class State:
         plt.close()
 
 #%%
+
+self = State(df,'dl')
+self.get_details()
+#self.plot_summary()
+
+
+dd = self.db
+#%%
 states_list = list(set(df['value.state']))
 
 #%%
@@ -317,22 +329,18 @@ ax = ind[['value.confirmed', 'value.cured', 'value.death']].plot(kind='bar',figs
 IN = State(ind,'ind')
 IN.get_details()
 IN.plot_summary()
-#%%
 
-self = State(df,'dl')
-self.get_details()
-self.plot_summary()
 
 #
 #%%
-#dates = pd.date_range(start='3/10/2020', end=pd.to_datetime('today')+pd.Timedelta('2 days'),tz='Indian/Cocos')
-#
-#for d in dates:
-#    self = State(df[(df['value.report_time'] <= d)],'kl',plot_flag=1)
-#    self.get_details()
-#    self.plot_summary()
-#
-#    print(d)
+dates = pd.date_range(start='3/10/2020', end=pd.to_datetime('today')+pd.Timedelta('1 days'),tz='Indian/Cocos')
+
+for d in dates:
+    self = State(df[(df['value.report_time'] <= d)],'kl',plot_flag=1)
+    self.get_details()
+    self.plot_summary()
+
+    print(d)
 
 #%%
 #self.growthrate = ((self.daily_conf[-1]/self.daily_conf[-2]) - 1)*100
