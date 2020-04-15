@@ -86,16 +86,14 @@ class State:
         self.st_abbr = state
         self.state   = state_dict[state]
 
-        Filter = df[(df['value.state'] == self.st_abbr)]
-
-#        self.db = Filter.loc[Filter.groupby(lambda x: Filter['value.report_time'][x].day)['value.report_time'].idxmax()]
-        self.db = Filter.groupby(pd.to_datetime(Filter['value.report_time']).dt.date).agg(
+        self.db = df.groupby(pd.to_datetime(df['value.report_time']).dt.date).agg(
                                                 {'value.confirmed': 'last',
                                                  'value.cured':'last',
                                                  'value.death':'last'}).reset_index()
-#        self.db = Filter
-        self.db['value.report_time'] = pd.to_datetime(self.db['value.report_time'])
-        #self.db['value.report_time'] = [t.date() for t in self.db['value.report_time']]
+
+        self.db['value.report_time'] = pd.to_datetime(self.db['value.report_time'],
+                                                      dayfirst = True)
+
         self.db = self.db.sort_values(['value.report_time'])
         #self.db = self.db.resample('D').sum()
 
@@ -199,9 +197,12 @@ class State:
 
         ax[2].bar(self.time, self.daily_conf,width=.5)
 
-        ax[2].set_xticks(['2020-03-15','2020-03-30','2020-04-14','2020-04-29'])
-        ax[2].set_xticklabels(['15 March','30 March','14 April'])
-        ax[2].set_xlim('2020-03-08','2020-04-18')
+        xtik = pd.date_range(start='3/10/2020',
+                             end=pd.to_datetime('today')+pd.Timedelta('7 days'),
+                             freq='7D')
+        ax[2].set_xticks(xtik)
+        ax[2].set_xticklabels(xtik.strftime('%B %d'))
+        ax[2].set_xlim('2020-03-08',pd.to_datetime('today')+pd.Timedelta('5 days'))
         ax[2].set_xlabel('Date')
 
         fig.tight_layout()
@@ -218,9 +219,10 @@ class State:
 
 #%%
 #
-#self = State(df,'dl')
-#self.get_details()
-#self.plot_summary(ylimit=2000)
+state_dl  = df[(df['value.state'] == 'dl')]
+self = State(state_dl,'dl')
+self.get_details()
+self.plot_summary(ylimit=2000)
 #
 #
 #dd = self.db
@@ -232,7 +234,8 @@ states_list = list(set(df['value.state']))
 state_objects = []
 
 for st in states_list:
-    state_obj = State(df,st) # creating an object for each individual state
+    state_db  = df[(df['value.state'] == st)]
+    state_obj = State(state_db,st) # creating an object for each individual state
     name      = {'object':state_obj} # putting that into a dictionary
     detail    = state_obj.get_details() # this returns a dictionary with details like cases, counts etc..
     detail.update(name) # merging both the dictionaries
