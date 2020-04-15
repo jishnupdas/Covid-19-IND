@@ -138,7 +138,8 @@ class State:
 
         'top panel showing counts vs time with a legend'
         '----------------------------------------------'
-        ax[0].set_title('{} \n({})'.format(self.state.upper(),max(self.time).date()),
+        ax[0].set_title('{} \n({})'.format(self.state.upper(),
+                        max(self.time).date()),
                         fontsize=15)
 
         ax[0].plot(self.time, self.conf, 'C0-o',lw=5,ms=10,
@@ -337,14 +338,14 @@ with open('README.md','r') as intro:
 os.system('pandoc Intro.md -t beamer -o report.pdf')
 
 #%%
-dates = pd.date_range(start='3/10/2020', end=pd.to_datetime('today')+pd.Timedelta('1 days'),tz='Indian/Cocos')
-
-for d in dates:
-    self = State(ind[(ind['value.report_time'] <= d)],'ind')
-    self.get_details()
-    self.plot_summary(plot_flag=1,ylimit=12000)
-
-    print(d)
+#dates = pd.date_range(start='3/10/2020', end=pd.to_datetime('today')+pd.Timedelta('1 days'),tz='Indian/Cocos')
+#
+#for d in dates:
+#    self = State(ind[(ind['value.report_time'] <= d)],'ind')
+#    self.get_details()
+#    self.plot_summary(plot_flag=1,ylimit=12000)
+#
+#    print(d)
 
 #%%
 #self.growthrate = ((self.daily_conf[-1]/self.daily_conf[-2]) - 1)*100
