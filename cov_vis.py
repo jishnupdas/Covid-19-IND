@@ -12,8 +12,8 @@ import matplotlib.pyplot as plt
 
 #%%
 
-#os.system('./data_update.sh')
-#os.system('./fetch_data.sh')
+os.system('./data_update.sh')
+os.system('./fetch_data.sh')
 #os.system('../covid19/') # going into the data directory
 #os.system('git fetch')  # updating the data (fteching updates from the source repo)
 #https://github.com/datameet/covid19
@@ -27,7 +27,7 @@ data = pd.read_json(f) # reading the json file
 df = pd.io.json.json_normalize(data['rows']) # getting data from the json file
 # i know its a little convoluted here (found the solution after 40 minutes of searching :P)
 #
-df['value.report_time'] = pd.to_datetime(df['value.report_time'])
+#df['value.report_time'] = pd.to_datetime(df['value.report_time'])
 
 
 #%%
@@ -66,7 +66,8 @@ state_dict  = {
 'hp':"Himachal Pradesh",
 'mn':"Manipur",
 'ap':"Andhra Pradesh",
-'nl':"Nagaland"
+'nl':"Nagaland",
+'ml':"Meghalaya"
 }
 
 #%%
@@ -77,8 +78,8 @@ class State:
     def __init__(self, df, state, db=None, st_abbr=None, time=None,
                  conf=None, cure=None, deth=None, growthrate=None,
                  conf_count=None,cure_count=None, deth_count=None,
-                 fatality_rate=None, plot_flag=None,
-                 daily_conf=None, daily_cure=None, daily_death=None):
+                 daily_conf=None, daily_cure=None, daily_death=None,
+                 fatality_rate=None,details=None):
 
         '''Initializing the values'''
 
@@ -117,20 +118,20 @@ class State:
         except:
             self.growthrate = 0
 
-        self.plot_flag = plot_flag
-
     def get_details(self):
 
-        details = {'State':self.state,
-                   'code':self.st_abbr,
-                   'confirmed':self.conf_count,
-                   'cured':self.cure_count,
-                   'deaths':self.deth_count,
-                   'fatality_rate':self.fatality_rate
-                    }
-        return details
+        ''' get key details from the data'''
 
-    def plot_summary(self):
+        self.details = {'State':self.state,
+                        'code':self.st_abbr,
+                        'confirmed':self.conf_count,
+                        'cured':self.cure_count,
+                        'deaths':self.deth_count,
+                        'fatality_rate':self.fatality_rate
+                    }
+        return self.details
+
+    def plot_summary(self,plot_flag=None,ylimit=None):
         'plotting the results in a multipanel plot'
 
         plt.style.use('seaborn')
@@ -139,7 +140,7 @@ class State:
 
         'top panel showing counts vs time with a legend'
         '----------------------------------------------'
-        ax[0].set_title('{} \n({})'.format(self.state.upper(),max(self.time)),
+        ax[0].set_title('{} \n({})'.format(self.state.upper(),max(self.time).date()),
                         fontsize=15)
 
         ax[0].plot(self.time, self.conf, 'C0-o',lw=5,ms=10,
@@ -161,8 +162,11 @@ class State:
 
         #ax[0].set_xlabel('Date')
         ax[0].set_ylabel('Numbers')
-        #ax[0].set_ylim(0, 2000)
-        ax[0].set_ylim(0, self.conf_count*1.1)
+#        ax[0].set_ylim(0, 12000)
+        if ylimit is None:
+            ax[0].set_ylim(0, self.conf_count*1.1)
+        else:
+            ax[0].set_ylim(0, ylimit)
 
         ax[0].legend(loc=2,fontsize=15,frameon=True,fancybox=True,
                     framealpha=.7,facecolor='white', borderpad=1)
@@ -184,8 +188,8 @@ class State:
     #    ax[1].set_xlabel('Date')
         ax[1].set_ylabel('Numbers')
         ax[1].set_yscale('symlog')
-        ax[1].set_yticks([10**i for i in range(6)])
-        ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(6)])
+        ax[1].set_yticks([10**i for i in range(7)])
+        ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(7)])
         ax[1].set_ylim(0,50000)
 
 
@@ -202,9 +206,9 @@ class State:
 
         fig.tight_layout()
 
-        if self.plot_flag==None:
+        if plot_flag==None:
             plt.savefig(f'plots/{self.st_abbr}.png',dpi=150)
-        elif self.plot_flag==1:
+        elif plot_flag==1:
             plt.savefig(f't_plot/{self.st_abbr}_{max(self.time).date()}.png',dpi=150)
         else:
             pass
@@ -213,13 +217,13 @@ class State:
         plt.close()
 
 #%%
-
-self = State(df,'dl')
-self.get_details()
-#self.plot_summary()
-
-
-dd = self.db
+#
+#self = State(df,'dl')
+#self.get_details()
+#self.plot_summary(ylimit=2000)
+#
+#
+#dd = self.db
 #%%
 states_list = list(set(df['value.state']))
 
@@ -286,6 +290,30 @@ def plot_bar(db):
 #%%
 db5 = db[(db['confirmed'] >= 50)]
 plot_bar(db5)
+
+#%%
+'''test code'''
+#%%
+conf_ts = pd.read_csv('data/confirmed.csv',names=['value.report_time','value.confirmed'])
+cure_ts = pd.read_csv('data/cured.csv'    ,names=['value.report_time','value.cured'])
+deth_ts = pd.read_csv('data/death.csv'    ,names=['value.report_time','value.death'])
+
+#%%
+ind = conf_ts
+ind['value.report_time'] = pd.to_datetime(ind['value.report_time'])
+
+ind['value.cured'],ind['value.death'] = cure_ts['value.cured'],deth_ts['value.death']
+ind['value.state'] = ['ind' for i in range(len(ind['value.cured']))]
+#%%
+ax = ind[['value.confirmed', 'value.cured', 'value.death']].plot(kind='bar',figsize=(12,16), width=.5, fontsize=13,
+             color=['C0', 'C1', 'C2'])
+
+#%%
+IN = State(ind,'ind')
+IN.get_details()
+IN.plot_summary()
+#
+
 #%%
 
 db = pd.DataFrame(state_objects) # creating a dataframe from the list of dictionaries
@@ -306,39 +334,12 @@ with open('README.md','r') as intro:
 os.system('pandoc Intro.md -t beamer -o report.pdf')
 
 #%%
-'''test code'''
-#%%
-conf_ts = pd.read_csv('data/confirmed.csv',names=['value.report_time','value.confirmed'])
-cure_ts = pd.read_csv('data/cured.csv'    ,names=['value.report_time','value.cured'])
-deth_ts = pd.read_csv('data/death.csv'    ,names=['value.report_time','value.death'])
-
-#%%
-ind = conf_ts
-ind['value.report_time'] = pd.to_datetime(ind['value.report_time'])
-
-ind['value.cured'],ind['value.death'] = cure_ts['value.cured'],deth_ts['value.death']
-ind['value.state'] = ['ind' for i in range(len(ind['value.cured']))]
-#%%
-ax = ind[['value.confirmed', 'value.cured', 'value.death']].plot(kind='bar',figsize=(12,16), width=.5, fontsize=13,
-             color=['C0', 'C1', 'C2'], stacked=True)
-
-#ax = ind.plot(kind='bar',figsize=(12,16), width=.5, fontsize=13,
-#             color=['C0', 'C2', 'C1'], stacked=True)
-
-#%%
-IN = State(ind,'ind')
-IN.get_details()
-IN.plot_summary()
-
-
-#
-#%%
 dates = pd.date_range(start='3/10/2020', end=pd.to_datetime('today')+pd.Timedelta('1 days'),tz='Indian/Cocos')
 
 for d in dates:
-    self = State(df[(df['value.report_time'] <= d)],'kl',plot_flag=1)
+    self = State(ind[(ind['value.report_time'] <= d)],'ind')
     self.get_details()
-    self.plot_summary()
+    self.plot_summary(plot_flag=1,ylimit=12000)
 
     print(d)
 
@@ -351,5 +352,4 @@ for d in dates:
 #print((self.conf[-1]/self.conf[-2]))
 #
 #print(self.growthrate)
-
 
