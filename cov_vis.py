@@ -215,7 +215,7 @@ class State:
         else:
             pass
 
-        plt.show()
+        #plt.show()
         plt.close()
 
 #%%
@@ -260,7 +260,7 @@ India = {
 def plot_bar(db):
     '''create a stacked horizontal barplot from states' data'''
 
-    db['cases'] = db.confirmed-db.cured-db.deaths
+    db['cases'] = db.confirmed.sub(db.cured-db.deaths, axis = 0)
 
 #    cases  = list(db.cases)
     cured  = list(db.cured)
