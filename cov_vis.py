@@ -309,13 +309,15 @@ ind['value.report_time'] = pd.to_datetime(ind['value.report_time'])
 ind['value.cured'],ind['value.death'] = cure_ts['value.cured'],deth_ts['value.death']
 ind['value.state'] = ['ind' for i in range(len(ind['value.cured']))]
 #%%
-ax = ind[['value.confirmed', 'value.cured', 'value.death']].plot(kind='bar',figsize=(12,16), width=.5, fontsize=13,
+ax = ind[['value.confirmed', 'value.cured', 'value.death']].plot(kind='bar',figsize=(16,12), width=.5, fontsize=13,
              color=['C0', 'C1', 'C2'])
 
 #%%
 IN = State(ind,'ind')
 IN.get_details()
 IN.plot_summary()
+
+inds = IN.db
 #
 
 #%%
