@@ -6,7 +6,6 @@ Created on Tue Apr  7 09:42:50 2020
 @author: jishnu
 """
 import os
-import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -215,7 +214,7 @@ class State:
         else:
             pass
 
-        #plt.show()
+        plt.show()
         plt.close()
 
 #%%
@@ -273,8 +272,8 @@ def plot_bar(db):
                                        color=['C2', 'C0', 'C1'], stacked=True)
     for i in range(len(tot)):
         ax.text(tot[i]+10,i-.1,'{:<4d}'.format(tot[i]), fontsize=12)
-        ax.text(tot[i]+120,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
-        ax.text(tot[i]+120,i-.25,'{}'.format(death[i]), fontsize=9, color='r')
+        ax.text(tot[i]+170,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
+        ax.text(tot[i]+170,i-.25,'{}'.format(death[i]), fontsize=9, color='r')
 
     ax.set_title('India \n(Cases:{}, Cured:{}, deaths:{})'.format(*list(India.values())),
                          fontsize=14)
@@ -292,7 +291,7 @@ def plot_bar(db):
     plt.close()
 
 #%%
-db5 = db[(db['confirmed'] >= 50)]
+db5 = db[(db['confirmed'] >= 100)]
 plot_bar(db5)
 
 #%%
@@ -340,14 +339,14 @@ with open('README.md','r') as intro:
 os.system('pandoc Intro.md -t beamer -o report.pdf')
 
 #%%
-#dates = pd.date_range(start='3/10/2020', end=pd.to_datetime('today')+pd.Timedelta('1 days'),tz='Indian/Cocos')
-#
-#for d in dates:
-#    self = State(ind[(ind['value.report_time'] <= d)],'ind')
-#    self.get_details()
-#    self.plot_summary(plot_flag=1,ylimit=12000)
-#
-#    print(d)
+dates = pd.date_range(start='3/10/2020', end=pd.to_datetime('today')+pd.Timedelta('1 days'),tz='Indian/Cocos')
+
+for d in dates:
+    self = State(ind[(ind['value.report_time'] <= d)],'ind')
+    self.get_details()
+    self.plot_summary(plot_flag=1,ylimit=18000)
+
+    print(d)
 
 #%%
 #self.growthrate = ((self.daily_conf[-1]/self.daily_conf[-2]) - 1)*100
