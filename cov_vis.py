@@ -214,16 +214,16 @@ class State:
         else:
             pass
 
-        plt.show()
+        #plt.show()
         plt.close()
 
 #%%
 #
-state_dl  = df[(df['value.state'] == 'dl')]
-self = State(state_dl,'dl')
-self.get_details()
-self.plot_summary(ylimit=2000)
-#
+#state_dl  = df[(df['value.state'] == 'dl')]
+#self = State(state_dl,'dl')
+#self.get_details()
+#self.plot_summary(ylimit=2000)
+##
 #
 #dd = self.db
 #%%
@@ -312,11 +312,11 @@ ax = ind[['value.confirmed', 'value.cured', 'value.death']].plot(kind='bar',figs
              color=['C0', 'C1', 'C2'])
 
 #%%
-IN = State(ind,'ind')
-IN.get_details()
-IN.plot_summary()
-
-inds = IN.db
+#IN = State(ind,'ind')
+#IN.get_details()
+#IN.plot_summary()
+#
+#inds = IN.db
 #
 
 #%%

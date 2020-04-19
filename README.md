@@ -32,10 +32,10 @@ Each state's data is visualized in three different plots
 ### Click [here to view the detailed statewise data and report](https://github.com/jishnupdas/Covid-19-IND/blob/master/report.pdf)
 ---
 
-
 # Credits
 
 ### [Data Source https://github.com/datameet/covid19](https://github.com/datameet/covid19)
 ### [jishnupdas](https://github.com/jishnupdas/Covid-19-IND)
+
 ---
 
