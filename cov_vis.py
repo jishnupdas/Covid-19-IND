@@ -312,11 +312,11 @@ ax = ind[['value.confirmed', 'value.cured', 'value.death']].plot(kind='bar',figs
              color=['C0', 'C1', 'C2'])
 
 #%%
-#IN = State(ind,'ind')
-#IN.get_details()
-#IN.plot_summary()
+IN = State(ind,'ind')
+IN.get_details()
+IN.plot_summary()
 #
-#inds = IN.db
+inds = IN.db
 #
 
 #%%
