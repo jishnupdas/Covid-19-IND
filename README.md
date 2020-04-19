@@ -36,6 +36,9 @@ Each state's data is visualized in three different plots
 
 ### [Data Source https://github.com/datameet/covid19](https://github.com/datameet/covid19)
 ### [jishnupdas](https://github.com/jishnupdas/Covid-19-IND)
+<<<<<<< HEAD
 
 ---
+=======
+>>>>>>> 2cad0b2c31fff97746835a533e8ef5cede36691c
 
