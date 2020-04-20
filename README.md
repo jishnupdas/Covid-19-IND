@@ -3,13 +3,13 @@ author:
     - jishnupdas
 title:
     - Covid-19 India Statewise
-header-includes: |
+header-includes:
     \input{theme1.tex}
 ---
 
-# This repo provides a simple visualisation for Covid-19 information for each of the indian states
+# This repo provides a simple visualisation for Covid-19 information for each of the Indian states
 
-*This data is sourced mainly from Govt and news agencies. The information presented here is publicly avialable*
+*This data is sourced mainly from Govt and news agencies. The information presented here is publicly available*
 
 ---
 
