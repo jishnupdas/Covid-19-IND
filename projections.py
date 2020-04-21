@@ -6,12 +6,6 @@ Created on Thu Apr 16 00:42:04 2020
 @author: jishnu
 """
 
-# U.S. COVID-19 cumulative lognormal extrapolations in the log domain.
-
-# NOTE: this exrapolation was RETRACTED because it was based on invalid
-# data and assumptions. PLEASE SEE: https://bit.ly/pycovid
-
-# Click on plot.png in the file pane to the left for the latest graph.
 
 # This is not a scientific forecast. For a sophisticated model, see:
 # http://gabgoh.github.io/COVID/index.html -- which is explained at:

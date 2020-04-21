@@ -307,6 +307,14 @@ ind['value.report_time'] = pd.to_datetime(ind['value.report_time'])
 
 ind['value.cured'],ind['value.death'] = cure_ts['value.cured'],deth_ts['value.death']
 ind['value.state'] = ['ind' for i in range(len(ind['value.cured']))]
+
+daily = ind.groupby(ind['value.report_time'].dt.date).agg({
+                                         'value.confirmed': 'last',
+                                         'value.cured':'last',
+                                         'value.death':'last'
+                                         }).reset_index()
+daily.columns = ['Date','Infected','Cured','Dead']
+daily.to_csv('data/time_series.csv',sep=',',index=False)
 #%%
 ax = ind[['value.confirmed', 'value.cured', 'value.death']].plot(kind='bar',figsize=(16,12), width=.5, fontsize=13,
              color=['C0', 'C1', 'C2'])
