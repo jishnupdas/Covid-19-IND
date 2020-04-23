@@ -366,3 +366,8 @@ os.system('pandoc Intro.md -t beamer -o report.pdf')
 #
 #print(self.growthrate)
 
+#%%
+#'''global time series data'''
+#URL_DATASET = r'https://raw.githubusercontent.com/datasets/covid-19/master/data/countries-aggregated.csv'
+#gdf = pd.read_csv(URL_DATASET)
+
