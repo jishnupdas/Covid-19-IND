@@ -268,16 +268,16 @@ def plot_bar(db):
 
     plt.style.use('seaborn')
     ax = db[['State','deaths', 'cases', 'cured']].plot(kind='barh',
-                                       figsize=(12,16), width=.5, fontsize=13,
+                                       figsize=(12,16), width=.7, fontsize=13,
                                        color=['C2', 'C0', 'C1'], stacked=True)
     for i in range(len(tot)):
-        ax.text(tot[i]+10,i-.1,'{:<4d}'.format(tot[i]), fontsize=12)
-        ax.text(tot[i]+170,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
-        ax.text(tot[i]+170,i-.25,'{}'.format(death[i]), fontsize=9, color='r')
+        ax.text(tot[i]+20,i-.1,'{:<4d}'.format(tot[i]), fontsize=12)
+        ax.text(tot[i]+350,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
+        ax.text(tot[i]+350,i-.25,'{}'.format(death[i]), fontsize=9, color='r')
 
     ax.set_title('India \n(Cases:{}, Cured:{}, deaths:{})'.format(*list(India.values())),
                          fontsize=14)
-    ax.set_xlim(0,max(tot)+400)
+    ax.set_xlim(0,max(tot)+800)
     ax.set_alpha(0.8)
 
     ax.set_yticklabels(list(db.State))
@@ -291,7 +291,7 @@ def plot_bar(db):
     plt.close()
 
 #%%
-db5 = db[(db['confirmed'] >= 100)]
+db5 = db[(db['confirmed'] >= 200)]
 plot_bar(db5)
 
 #%%

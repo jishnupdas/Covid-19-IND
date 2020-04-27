@@ -69,6 +69,7 @@ def projection_plot(df):
 
     ax.plot(indates, yi, 'C0', label='Infected : {:,.0f}'.format(df.Infected[-1]))
     ax.plot(indates, yd, 'C2', label='Dead     : {:,.0f}'.format(df.Dead[-1]))
+    #ax.plot(indates, yi*0.0311, 'C4-o')
 
     im = Model(lognormal_c)
     iparams = im.make_params(s=0.3, mu=4.3, h=16.5)
@@ -133,13 +134,17 @@ db = df[10:]
 projection_plot(db)
 
 #%%
-'''
+
 df1 = df[10:]
 
 for i in range(17,len(df1.index)+1):
     db = df1[:i]
     projection_plot(db)
 
-'''
+
 #%%
 os.system('convert -delay 100 t_plot/projection_* -delay 100 -loop 0 plots/prjct.gif')
+
+#%%
+#plt.plot(df.index,df['Dead'])
+#plt.plot(df.index,df['Infected']*.033)
