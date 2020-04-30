@@ -188,7 +188,7 @@ class State:
         ax[1].set_yscale('symlog')
         ax[1].set_yticks([10**i for i in range(7)])
         ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(7)])
-        ax[1].set_ylim(0,50000)
+        ax[1].set_ylim(0,100000)
 
 
         'bottom panel showing daily counts'

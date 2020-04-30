@@ -21,12 +21,12 @@ Each state's data is visualized in three different plots
 
 # Summary 
 
-![statewise numbers](plots/summary.png)
+![statewise numbers](plots/summary.png){height=90%}
 
 
 # India
 
-![](plots/ind.png)
+![](plots/ind.png){width=70%}
 
 # Report
 
