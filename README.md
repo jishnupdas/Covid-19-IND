@@ -9,7 +9,7 @@ header-includes:
 
 # This repo provides a simple visualisation for Covid-19 information for each of the Indian states
 
-*This data is sourced mainly from Govt and news agencies. The information presented here is publicly available*
+*This data is sourced mainly from Govt and news agencies. The information presented here is publicly available.*
 
 ---
 
