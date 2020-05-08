@@ -141,7 +141,6 @@ for i in range(17,len(df1.index)+1):
     db = df1[:i]
     projection_plot(db)
 '''
-
 #%%
 os.system('convert -delay 100 t_plot/projection_* -delay 100 -loop 0 plots/prjct.gif')
 
