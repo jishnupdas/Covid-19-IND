@@ -273,8 +273,8 @@ def plot_bar(db):
                                        color=['C2', 'C0', 'C1'], stacked=True)
     for i in range(len(tot)):
         ax.text(tot[i]+20,i-.1,'{:<4d}'.format(tot[i]), fontsize=12)
-        ax.text(tot[i]+350,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
-        ax.text(tot[i]+350,i-.25,'{}'.format(death[i]), fontsize=9, color='r')
+        ax.text(tot[i]+650,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
+        ax.text(tot[i]+650,i-.25,'{}'.format(death[i]), fontsize=9, color='r')
 
     ax.set_title('India \n(Cases:{}, Cured:{}, deaths:{})'.format(*list(India.values())),
                          fontsize=14)
