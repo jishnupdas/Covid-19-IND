@@ -67,7 +67,8 @@ state_dict  = {
 'ap':"Andhra Pradesh",
 'nl':"Nagaland",
 'ml':"Meghalaya",
-'dn':"Dadar Nagar Haveli"
+'dn':"Dadar Nagar Haveli",
+'sk':"Sikkim"
 }
 
 #%%
