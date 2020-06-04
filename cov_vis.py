@@ -293,7 +293,7 @@ def plot_bar(db):
     plt.close()
 
 #%%
-db5 = db[(db['confirmed'] >= 200)]
+db5 = db[(db['confirmed'] >= 1000)]
 plot_bar(db5)
 
 #%%
