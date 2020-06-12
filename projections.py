@@ -49,7 +49,7 @@ def projection_plot(df):
 
 #    lastday = df.index[-1] + Timedelta(70, 'd') # extrapolate 60 days
 
-    lastday = pd.datetime(2020,6,15)
+    lastday = pd.datetime(2020,7,15)
 
     plt.style.use('seaborn')
     fig, ax = subplots(figsize=(12,10))
@@ -113,7 +113,7 @@ def projection_plot(df):
                          freq='15D')
     ax.set_xticks(xtik)
     ax.set_xticklabels(xtik.strftime('%B %d'))
-    ax.set_xlim(df.index[0], '2020-06-15')
+    ax.set_xlim(df.index[0], '2020-07-15')
     #ax.xaxis.set_major_formatter(ConciseDateFormatter(AutoDateLocator(), show_offset=False))
     ax.set_xlabel('95% prediction confidence intervals shaded')
 
@@ -130,16 +130,16 @@ def projection_plot(df):
 df = read_csv('data/time_series.csv', parse_dates=['Date'], index_col='Date')
 
 #%%
-db = df[30:]
+db = df[16:]
 projection_plot(db)
 
 #%%
 
 df1 = df[30:]
 
-#for i in range(17,len(df1.index)+1):
-    #db = df1[:i]
-    #projection_plot(db)
+for i in range(17,len(df1.index)+1):
+    db = df1[:i]
+    projection_plot(db)
 
 #%%
 os.system('convert -delay 100 t_plot/projection_* -delay 100 -loop 0 plots/prjct.gif')

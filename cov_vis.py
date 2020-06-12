@@ -69,7 +69,9 @@ state_dict  = {
 'ml':"Meghalaya",
 'dn':"Dadar Nagar Haveli",
 'sk':"Sikkim",
-'unassigned':"Unassigned"
+'unassigned':"Unassigned",
+'dd':"Daman and Diu",
+'dn_dd':"Daman and Diu"
 }
 
 #%%
