@@ -204,7 +204,7 @@ class State:
 
         xtik = pd.date_range(start='3/10/2020',
                              end=pd.to_datetime('today')+pd.Timedelta('7 days'),
-                             freq='7D')
+                             freq='14D')
         ax[2].set_xticks(xtik)
         ax[2].set_xticklabels(xtik.strftime('%B %d'))
         ax[2].set_xlim('2020-03-08',pd.to_datetime('today')+pd.Timedelta('5 days'))
@@ -296,7 +296,7 @@ def plot_bar(db):
     plt.close()
 
 #%%
-db5 = db[(db['confirmed'] >= 1000)]
+db5 = db[(db['confirmed'] >= 4000)]
 plot_bar(db5)
 
 #%%
