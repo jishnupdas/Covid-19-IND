@@ -47,9 +47,9 @@ def lognormal_c(x, s, mu, h): # x, sigma, mean, height
 #%%
 def projection_plot(df):
 
-#    lastday = df.index[-1] + Timedelta(70, 'd') # extrapolate 60 days
+    #lastday = df.index[-1] + Timedelta(30, 'd') # extrapolate 60 days
 
-    lastday = pd.datetime(2020,7,15)
+    lastday = pd.datetime(2020,8,1)
 
     plt.style.use('seaborn')
     fig, ax = subplots(figsize=(12,10))
@@ -100,7 +100,7 @@ def projection_plot(df):
     ax.fill_between(exdates, exp(dintlow), exp(dpred+dupred), alpha=0.35, color='C2')
     #ax.fill_between(exdates, 0.029 * (exp(iintlow)), 0.029 * (exp(ipred+iupred)),
     #    alpha=0.35, color='g', label='Deaths from observed fatality rate')
-    endDate = '2020-07-15'
+    endDate = lastday
     ax.set_yscale('symlog') # semilog
     ax.set_ylim(10, 10**7)
     ax.yaxis.set_major_formatter(StrMethodFormatter('{x:,.0f}')) # comma separators
@@ -113,7 +113,7 @@ def projection_plot(df):
                          freq='15D')
     ax.set_xticks(xtik)
     ax.set_xticklabels(xtik.strftime('%B %d'))
-    ax.set_xlim(df.index[0], endDate)
+    ax.set_xlim(df.index[0], endDate+Timedelta(1, 'd'))
     #ax.xaxis.set_major_formatter(ConciseDateFormatter(AutoDateLocator(), show_offset=False))
     ax.set_xlabel('95% prediction confidence intervals shaded')
 
@@ -130,17 +130,17 @@ def projection_plot(df):
 df = read_csv('data/time_series.csv', parse_dates=['Date'], index_col='Date')
 
 #%%
-db = df[30:]
+db = df[21:]
 projection_plot(db)
 
 #%%
-'''
-df1 = df[30:]
+
+df1 = df[21:]
 
 for i in range(17,len(df1.index)+1):
     db = df1[:i]
     projection_plot(db)
-'''
+
 #%%
 os.system('convert -delay 100 t_plot/projection_* -delay 100 -loop 0 plots/prjct.gif')
 
