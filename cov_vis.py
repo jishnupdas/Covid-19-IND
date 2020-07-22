@@ -8,11 +8,12 @@ Created on Tue Apr  7 09:42:50 2020
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
 
 #%%
 
 os.system('./data_update.sh')
-os.system('./fetch_data.sh')
 #os.system('../covid19/') # going into the data directory
 #os.system('git fetch')  # updating the data (fteching updates from the source repo)
 #https://github.com/datameet/covid19
@@ -193,7 +194,7 @@ class State:
         ax[1].set_yscale('symlog')
         ax[1].set_yticks([10**i for i in range(7)])
         ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(7)])
-        ax[1].set_ylim(0,1000000)
+        ax[1].set_ylim(0,10**7)
 
 
         'bottom panel showing daily counts'
@@ -304,7 +305,7 @@ plot_bar(db5)
 #%%
 conf_ts = pd.read_csv('data/confirmed.csv',names=['value.report_time','value.confirmed'])
 cure_ts = pd.read_csv('data/cured.csv'    ,names=['value.report_time','value.cured'])
-deth_ts = pd.read_csv('data/death.csv'    ,names=['value.report_time','value.death'])
+deth_ts = pd.read_csv('data/deaths.csv'   ,names=['value.report_time','value.death'])
 
 #%%
 ind = conf_ts
