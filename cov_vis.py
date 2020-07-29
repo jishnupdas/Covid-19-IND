@@ -291,7 +291,7 @@ def plot_bar(db):
              framealpha=.7,facecolor='white', borderpad=1)
 
     plt.tight_layout()
-    plt.savefig(f'plots/summary.pdf',dpi=150)
+    plt.savefig(f'plots/summary.pdf')
     plt.show()
     plt.close()
 
@@ -349,6 +349,7 @@ with open('README.md','r') as intro:
             outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.pdf){{width=70%}}\n\n\n')
     #            outfile.write(f'# {state} \n\n\n![](plots/{st}.png)\n\n\n')
 
+#%%
 os.system('pandoc Intro.md -t beamer -o report.pdf')
 
 #%%

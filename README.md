@@ -21,12 +21,14 @@ Each state's data is visualized in three different plots
 
 # Summary 
 
-![statewise numbers](plots/summary.png){height=90%}
+![statewise numbers](plots/summary.pdf){height=90%}
 
 
 # India
 
-![](plots/ind.png){width=70%}
+\centering
+
+![](plots/ind.pdf){width=70%}
 
 # Report
 
@@ -37,5 +39,6 @@ Each state's data is visualized in three different plots
 
 ### [Data Source https://github.com/datameet/covid19](https://github.com/datameet/covid19)
 ### [jishnupdas](https://github.com/jishnupdas/Covid-19-IND)
+
 
 ---
