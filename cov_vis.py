@@ -6,6 +6,7 @@ Created on Tue Apr  7 09:42:50 2020
 @author: jishnu
 """
 import os
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from pandas.plotting import register_matplotlib_converters
@@ -13,9 +14,7 @@ register_matplotlib_converters()
 
 #%%
 
-os.system('./data_update.sh')
-#os.system('../covid19/') # going into the data directory
-#os.system('git fetch')  # updating the data (fteching updates from the source repo)
+os.system('./data_update.sh') # updating the data (fteching updates from the source repo)
 #https://github.com/datameet/covid19
 
 #%%
@@ -72,7 +71,8 @@ state_dict  = {
 'sk':"Sikkim",
 'unassigned':"Unassigned",
 'dd':"Daman and Diu",
-'dn_dd':"Daman and Diu"
+'dn_dd':"Daman and Diu",
+'ld':"Lakshadweep"
 }
 
 #%%
@@ -88,7 +88,7 @@ class State:
 
         '''Initializing the values'''
 
-        self.st_abbr = state
+        self.st_abbr = state.lower()
         self.state   = state_dict[state]
 
         self.db = df.groupby(pd.to_datetime(df['value.report_time']).dt.date).agg(
@@ -103,18 +103,24 @@ class State:
         #self.db = self.db.resample('D').sum()
 
         self.time          = self.db['value.report_time']
-        self.conf          = list(self.db['value.confirmed'])
-        self.cure          = list(self.db['value.cured'])
-        self.deth          = list(self.db['value.death'])
+        self.conf          = np.array(self.db['value.confirmed'])
+        self.cure          = np.array(self.db['value.cured'])
+        self.deth          = np.array(self.db['value.death'])
 
-        self.conf_count    = max(self.conf)
-        self.cure_count    = max(self.cure)
-        self.deth_count    = max(self.deth)
+        self.conf_count    = max(self.conf, default=0)
+        self.cure_count    = max(self.cure, default=0)
+        self.deth_count    = max(self.deth, default=0)
 
-        self.fatality_rate = self.deth_count*100/self.conf_count
-        self.daily_conf    = [0]+[self.conf[i]-self.conf[i-1] for i in range(1,len(self.conf))]
-        self.daily_cure    = [0]+[self.cure[i]-self.cure[i-1] for i in range(1,len(self.cure))]
-        self.daily_death   = [0]+[self.deth[i]-self.deth[i-1] for i in range(1,len(self.deth))]
+        if self.conf_count > 0:
+            self.fatality_rate = self.deth_count*100/self.conf_count
+            self.daily_conf    = [0]+[self.conf[i]-self.conf[i-1] for i in range(1,len(self.conf))]
+            self.daily_cure    = [0]+[self.cure[i]-self.cure[i-1] for i in range(1,len(self.cure))]
+            self.daily_death   = [0]+[self.deth[i]-self.deth[i-1] for i in range(1,len(self.deth))]
+        else:
+            self.fatality_rate = 0
+            self.daily_conf    = [0]
+            self.daily_cure    = [0]
+            self.daily_death   = [0]
 
         try:
             self.growthrate = ((self.conf[-1]/self.conf[-2]) - 1)*100
@@ -214,26 +220,18 @@ class State:
         fig.tight_layout()
 
         if plot_flag==None:
-            plt.savefig(f'plots/{self.st_abbr}.png',dpi=150)
+            plt.savefig(f'plots/{self.st_abbr}.pdf',dpi=150)
         elif plot_flag==1:
-            plt.savefig(f't_plot/{self.st_abbr}_{max(self.time).date()}.png',dpi=150)
+            plt.savefig(f't_plot/{self.st_abbr}_{max(self.time).date()}.pdf',dpi=150)
         else:
             pass
 
         #plt.show()
         plt.close()
 
+
 #%%
-#
-#state_dl  = df[(df['value.state'] == 'dl')]
-#self = State(state_dl,'dl')
-#self.get_details()
-#self.plot_summary(ylimit=2000)
-##
-#
-#dd = self.db
-#%%
-states_list = list(set(df['value.state']))
+states_list = list(set(df['value.state'].str.lower()))
 
 #%%
 
@@ -241,14 +239,15 @@ state_objects = []
 
 for st in states_list:
     state_db  = df[(df['value.state'] == st)]
-    state_obj = State(state_db,st) # creating an object for each individual state
-    name      = {'object':state_obj} # putting that into a dictionary
-    detail    = state_obj.get_details() # this returns a dictionary with details like cases, counts etc..
-    detail.update(name) # merging both the dictionaries
+    if len(state_db) > 0:
+        state_obj = State(state_db,st) # creating an object for each individual state
+        name      = {'object':state_obj} # putting that into a dictionary
+        detail    = state_obj.get_details() # this returns a dictionary with details like cases, counts etc..
+        detail.update(name) # merging both the dictionaries
 
-    state_obj.plot_summary() #creating plot for each state
+        state_obj.plot_summary() #creating plot for each state
 
-    state_objects.append(detail) # appending the dictionaries into a list
+        state_objects.append(detail) # appending the dictionaries into a list
 
 
 db = pd.DataFrame(state_objects) # creating a dataframe from the list of dictionaries
@@ -292,7 +291,7 @@ def plot_bar(db):
              framealpha=.7,facecolor='white', borderpad=1)
 
     plt.tight_layout()
-    plt.savefig(f'plots/summary.png',dpi=150)
+    plt.savefig(f'plots/summary.pdf',dpi=150)
     plt.show()
     plt.close()
 
@@ -347,7 +346,7 @@ with open('README.md','r') as intro:
         for state in states_list:
             st     = state
             state  = state_dict[state]
-            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.png){{width=70%}}\n\n\n')
+            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.pdf){{width=70%}}\n\n\n')
     #            outfile.write(f'# {state} \n\n\n![](plots/{st}.png)\n\n\n')
 
 os.system('pandoc Intro.md -t beamer -o report.pdf')
