@@ -26,6 +26,12 @@ data = pd.read_json(f) # reading the json file
 df = pd.io.json.json_normalize(data['rows']) # getting data from the json file
 # i know its a little convoluted here (found the solution after 40 minutes of searching :P)
 #
+
+#%%
+df = df[['value.report_time', 'value.source', 'value.state', 'value.confirmed',
+       'value.confirmed_foreign', 'value.confirmed_india', 'value.cured',
+       'value.death','value.type']]
+
 #df['value.report_time'] = pd.to_datetime(df['value.report_time'])
 
 
@@ -233,6 +239,18 @@ class State:
 #%%
 states_list = list(set(df['value.state'].str.lower()))
 
+
+#%%
+
+dk = df[(df['value.state'] == 'kl')]
+
+self = State(dk,'kl')
+name = {'object':self}
+detail = self.get_details()
+detail.update(name)
+self.plot_summary()
+
+
 #%%
 
 state_objects = []
@@ -296,7 +314,7 @@ def plot_bar(db):
     plt.close()
 
 #%%
-db5 = db[(db['confirmed'] >= 4000)]
+db5 = db[(db['confirmed'] >= 10000)]
 plot_bar(db5)
 
 #%%
@@ -321,8 +339,8 @@ daily = ind.groupby(ind['value.report_time'].dt.date).agg({
 daily.columns = ['Date','Infected','Cured','Dead']
 daily.to_csv('data/time_series.csv',sep=',',index=False)
 #%%
-ax = ind[['value.confirmed', 'value.cured', 'value.death']].plot(kind='bar',figsize=(16,12), width=.5, fontsize=13,
-             color=['C0', 'C1', 'C2'])
+#ax = ind[['value.confirmed', 'value.cured', 'value.death']].plot(kind='bar',figsize=(16,12), width=.5, fontsize=13,
+#             color=['C0', 'C1', 'C2'])
 
 #%%
 IN = State(ind,'ind')
