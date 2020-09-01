@@ -217,7 +217,7 @@ class State:
 
         xtik = pd.date_range(start='3/10/2020',
                              end=pd.to_datetime('today')+pd.Timedelta('7 days'),
-                             freq='14D')
+                             freq='21D')
         ax[2].set_xticks(xtik)
         ax[2].set_xticklabels(xtik.strftime('%B %d'))
         ax[2].set_xlim('2020-03-08',pd.to_datetime('today')+pd.Timedelta('5 days'))
@@ -242,13 +242,13 @@ states_list = list(set(df['value.state'].str.lower()))
 
 #%%
 
-dk = df[(df['value.state'] == 'kl')]
+#dk = df[(df['value.state'] == 'kl')]
 
-self = State(dk,'kl')
-name = {'object':self}
-detail = self.get_details()
-detail.update(name)
-self.plot_summary()
+#self = State(dk,'kl')
+#name = {'object':self}
+#detail = self.get_details()
+#detail.update(name)
+#self.plot_summary()
 
 
 #%%
@@ -314,7 +314,7 @@ def plot_bar(db):
     plt.close()
 
 #%%
-db5 = db[(db['confirmed'] >= 10000)]
+db5 = db[(db['confirmed'] >= 30000)]
 plot_bar(db5)
 
 #%%
