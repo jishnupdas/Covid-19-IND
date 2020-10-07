@@ -49,10 +49,10 @@ def projection_plot(df):
 
     #lastday = df.index[-1] + Timedelta(30, 'd') # extrapolate 60 days
 
-    lastday = pd.datetime(2020,8,1)
+    lastday = pd.datetime(2020,11,1)
 
     plt.style.use('seaborn')
-    fig, ax = subplots(figsize=(12,10))
+    fig, ax = subplots(figsize=(16,10))
     ax.set_title('India Covid Infections \n({})'.format(df.index[-1].date()),fontsize=18)
 
     nextday = df.index[-1] + Timedelta('1d')
@@ -102,10 +102,10 @@ def projection_plot(df):
     #    alpha=0.35, color='g', label='Deaths from observed fatality rate')
     endDate = lastday
     ax.set_yscale('symlog') # semilog
-    ax.set_ylim(10, 10**7)
+    ax.set_ylim(10, 10**8)
     ax.yaxis.set_major_formatter(StrMethodFormatter('{x:,.0f}')) # comma separators
     ax.set_ylabel('Numbers (in log scale)')
-    ax.legend(loc="upper left",fontsize=14,ncol=3,frameon=True,fancybox=True,
+    ax.legend(loc="lower right",fontsize=14,ncol=3,frameon=True,fancybox=True,
               framealpha=.7,facecolor='white', borderpad=1)
     xtik = pd.date_range(start='2020-03-13',
                          end=endDate,
@@ -123,24 +123,25 @@ def projection_plot(df):
     print('Infections at end of period shown: {:,.0f}. Deaths: {:,.0f}.'.format(
         exp(ipred[-1])-1, exp(dpred[-1])-1))
 
-    plt.show()
-    plt.close()
+    #plt.show()
+    plt.clf()
+    plt.close(fig)
 
 #%%
 df = read_csv('data/time_series.csv', parse_dates=['Date'], index_col='Date')
 
 #%%
-db = df[21:]
-projection_plot(db)
+#db = df[21:]
+#projection_plot(db)
 
 #%%
-'''
+
 df1 = df[21:]
 
 for i in range(17,len(df1.index)+1):
     db = df1[:i]
     projection_plot(db)
-'''
+
 #%%
 os.system('convert -delay 100 t_plot/projection_* -delay 100 -loop 0 plots/prjct.gif')
 
