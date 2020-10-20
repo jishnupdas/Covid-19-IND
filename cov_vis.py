@@ -9,6 +9,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
 
@@ -204,8 +205,8 @@ class State:
     #    ax[1].set_xlabel('Date')
         ax[1].set_ylabel('Numbers')
         ax[1].set_yscale('symlog')
-        ax[1].set_yticks([10**i for i in range(7)])
-        ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(7)])
+        ax[1].set_yticks([10**i for i in range(8)])
+        ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(8)])
         ax[1].set_ylim(0,10**7)
 
 
@@ -217,9 +218,9 @@ class State:
 
         xtik = pd.date_range(start='3/10/2020',
                              end=pd.to_datetime('today')+pd.Timedelta('7 days'),
-                             freq='21D')
+                             freq='30D')
         ax[2].set_xticks(xtik)
-        ax[2].set_xticklabels(xtik.strftime('%B %d'))
+        ax[2].set_xticklabels(xtik.strftime('%d \n %b'))
         ax[2].set_xlim('2020-03-08',pd.to_datetime('today')+pd.Timedelta('5 days'))
         ax[2].set_xlabel('Date')
 
@@ -314,7 +315,7 @@ def plot_bar(db):
     plt.close()
 
 #%%
-db5 = db[(db['confirmed'] >= 30000)]
+db5 = db.sort_values(by='confirmed')[-15:]
 plot_bar(db5)
 
 #%%

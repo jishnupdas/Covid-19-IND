@@ -77,6 +77,13 @@ Each state's data is visualized in three different plots
 ![](plots/up.pdf){width=70%}
 
 
+# Kerala 
+
+\centering
+
+![](plots/kl.pdf){width=70%}
+
+
 # Delhi 
 
 \centering
@@ -89,13 +96,6 @@ Each state's data is visualized in three different plots
 \centering
 
 ![](plots/wb.pdf){width=70%}
-
-
-# Kerala 
-
-\centering
-
-![](plots/kl.pdf){width=70%}
 
 
 # Odisha 
@@ -133,11 +133,11 @@ Each state's data is visualized in three different plots
 ![](plots/rj.pdf){width=70%}
 
 
-# Gujarat 
+# Chhattisgarh 
 
 \centering
 
-![](plots/gj.pdf){width=70%}
+![](plots/ct.pdf){width=70%}
 
 
 # Madhya Pradesh 
@@ -147,18 +147,18 @@ Each state's data is visualized in three different plots
 ![](plots/mp.pdf){width=70%}
 
 
+# Gujarat 
+
+\centering
+
+![](plots/gj.pdf){width=70%}
+
+
 # Haryana 
 
 \centering
 
 ![](plots/hr.pdf){width=70%}
-
-
-# Chhattisgarh 
-
-\centering
-
-![](plots/ct.pdf){width=70%}
 
 
 # Punjab 
@@ -217,18 +217,18 @@ Each state's data is visualized in three different plots
 ![](plots/hp.pdf){width=70%}
 
 
-# Chandigarh 
-
-\centering
-
-![](plots/ch.pdf){width=70%}
-
-
 # Manipur 
 
 \centering
 
 ![](plots/mn.pdf){width=70%}
+
+
+# Chandigarh 
+
+\centering
+
+![](plots/ch.pdf){width=70%}
 
 
 # Arunachal Pradesh 
