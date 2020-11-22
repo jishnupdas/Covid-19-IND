@@ -9,7 +9,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
+# import matplotlib.dates as mdates
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
 
@@ -259,6 +259,7 @@ state_objects = []
 for st in states_list:
     state_db  = df[(df['value.state'] == st)]
     if len(state_db) > 0:
+        print(st)
         state_obj = State(state_db,st) # creating an object for each individual state
         name      = {'object':state_obj} # putting that into a dictionary
         detail    = state_obj.get_details() # this returns a dictionary with details like cases, counts etc..
@@ -315,7 +316,7 @@ def plot_bar(db):
     plt.close()
 
 #%%
-db5 = db.sort_values(by='confirmed')[-15:]
+db5 = db[-15:]
 plot_bar(db5)
 
 #%%

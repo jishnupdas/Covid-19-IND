@@ -49,18 +49,18 @@ Each state's data is visualized in three different plots
 ![](plots/mh.pdf){width=70%}
 
 
-# Andhra Pradesh 
-
-\centering
-
-![](plots/ap.pdf){width=70%}
-
-
 # Karnataka 
 
 \centering
 
 ![](plots/ka.pdf){width=70%}
+
+
+# Andhra Pradesh 
+
+\centering
+
+![](plots/ap.pdf){width=70%}
 
 
 # Tamil Nadu 
@@ -70,18 +70,18 @@ Each state's data is visualized in three different plots
 ![](plots/tn.pdf){width=70%}
 
 
-# Uttar Pradesh 
-
-\centering
-
-![](plots/up.pdf){width=70%}
-
-
 # Kerala 
 
 \centering
 
 ![](plots/kl.pdf){width=70%}
+
+
+# Uttar Pradesh 
+
+\centering
+
+![](plots/up.pdf){width=70%}
 
 
 # Delhi 
@@ -119,13 +119,6 @@ Each state's data is visualized in three different plots
 ![](plots/br.pdf){width=70%}
 
 
-# Assam 
-
-\centering
-
-![](plots/as.pdf){width=70%}
-
-
 # Rajasthan 
 
 \centering
@@ -140,11 +133,18 @@ Each state's data is visualized in three different plots
 ![](plots/ct.pdf){width=70%}
 
 
-# Madhya Pradesh 
+# Assam 
 
 \centering
 
-![](plots/mp.pdf){width=70%}
+![](plots/as.pdf){width=70%}
+
+
+# Haryana 
+
+\centering
+
+![](plots/hr.pdf){width=70%}
 
 
 # Gujarat 
@@ -154,11 +154,11 @@ Each state's data is visualized in three different plots
 ![](plots/gj.pdf){width=70%}
 
 
-# Haryana 
+# Madhya Pradesh 
 
 \centering
 
-![](plots/hr.pdf){width=70%}
+![](plots/mp.pdf){width=70%}
 
 
 # Punjab 
@@ -224,13 +224,6 @@ Each state's data is visualized in three different plots
 ![](plots/mn.pdf){width=70%}
 
 
-# Chandigarh 
-
-\centering
-
-![](plots/ch.pdf){width=70%}
-
-
 # Arunachal Pradesh 
 
 \centering
@@ -238,11 +231,11 @@ Each state's data is visualized in three different plots
 ![](plots/ar.pdf){width=70%}
 
 
-# Unassigned 
+# Chandigarh 
 
 \centering
 
-![](plots/unassigned.pdf){width=70%}
+![](plots/ch.pdf){width=70%}
 
 
 # Meghalaya 
@@ -257,6 +250,13 @@ Each state's data is visualized in three different plots
 \centering
 
 ![](plots/nl.pdf){width=70%}
+
+
+# Unassigned 
+
+\centering
+
+![](plots/unassigned.pdf){width=70%}
 
 
 # Ladakh 
@@ -280,18 +280,18 @@ Each state's data is visualized in three different plots
 ![](plots/sk.pdf){width=70%}
 
 
-# Daman and Diu 
-
-\centering
-
-![](plots/dn_dd.pdf){width=70%}
-
-
 # Mizoram 
 
 \centering
 
 ![](plots/mz.pdf){width=70%}
+
+
+# Daman and Diu 
+
+\centering
+
+![](plots/dn_dd.pdf){width=70%}
 
 
 # Dadar Nagar Haveli 
