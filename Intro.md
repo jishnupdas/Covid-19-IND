@@ -77,18 +77,18 @@ Each state's data is visualized in three different plots
 ![](plots/kl.pdf){width=70%}
 
 
-# Uttar Pradesh 
-
-\centering
-
-![](plots/up.pdf){width=70%}
-
-
 # Delhi 
 
 \centering
 
 ![](plots/dl.pdf){width=70%}
+
+
+# Uttar Pradesh 
+
+\centering
+
+![](plots/up.pdf){width=70%}
 
 
 # West Bengal 
@@ -105,25 +105,18 @@ Each state's data is visualized in three different plots
 ![](plots/or.pdf){width=70%}
 
 
-# Telangana 
-
-\centering
-
-![](plots/tg.pdf){width=70%}
-
-
-# Bihar 
-
-\centering
-
-![](plots/br.pdf){width=70%}
-
-
 # Rajasthan 
 
 \centering
 
 ![](plots/rj.pdf){width=70%}
+
+
+# Telangana 
+
+\centering
+
+![](plots/tg.pdf){width=70%}
 
 
 # Chhattisgarh 
@@ -133,18 +126,25 @@ Each state's data is visualized in three different plots
 ![](plots/ct.pdf){width=70%}
 
 
-# Assam 
-
-\centering
-
-![](plots/as.pdf){width=70%}
-
-
 # Haryana 
 
 \centering
 
 ![](plots/hr.pdf){width=70%}
+
+
+# Bihar 
+
+\centering
+
+![](plots/br.pdf){width=70%}
+
+
+# Assam 
+
+\centering
+
+![](plots/as.pdf){width=70%}
 
 
 # Gujarat 
@@ -168,18 +168,18 @@ Each state's data is visualized in three different plots
 ![](plots/pb.pdf){width=70%}
 
 
-# Jharkhand 
-
-\centering
-
-![](plots/jh.pdf){width=70%}
-
-
 # Jammu and Kashmir 
 
 \centering
 
 ![](plots/jk.pdf){width=70%}
+
+
+# Jharkhand 
+
+\centering
+
+![](plots/jh.pdf){width=70%}
 
 
 # Uttarakhand 
@@ -196,6 +196,13 @@ Each state's data is visualized in three different plots
 ![](plots/ga.pdf){width=70%}
 
 
+# Himachal Pradesh 
+
+\centering
+
+![](plots/hp.pdf){width=70%}
+
+
 # Puducherry 
 
 \centering
@@ -210,13 +217,6 @@ Each state's data is visualized in three different plots
 ![](plots/tr.pdf){width=70%}
 
 
-# Himachal Pradesh 
-
-\centering
-
-![](plots/hp.pdf){width=70%}
-
-
 # Manipur 
 
 \centering
@@ -224,18 +224,18 @@ Each state's data is visualized in three different plots
 ![](plots/mn.pdf){width=70%}
 
 
-# Arunachal Pradesh 
-
-\centering
-
-![](plots/ar.pdf){width=70%}
-
-
 # Chandigarh 
 
 \centering
 
 ![](plots/ch.pdf){width=70%}
+
+
+# Arunachal Pradesh 
+
+\centering
+
+![](plots/ar.pdf){width=70%}
 
 
 # Meghalaya 
@@ -266,18 +266,18 @@ Each state's data is visualized in three different plots
 ![](plots/la.pdf){width=70%}
 
 
-# Andaman and Nicobar Islands 
-
-\centering
-
-![](plots/an.pdf){width=70%}
-
-
 # Sikkim 
 
 \centering
 
 ![](plots/sk.pdf){width=70%}
+
+
+# Andaman and Nicobar Islands 
+
+\centering
+
+![](plots/an.pdf){width=70%}
 
 
 # Mizoram 

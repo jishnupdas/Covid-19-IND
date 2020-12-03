@@ -3,6 +3,8 @@
 # activating venv
 conda activate base
 
+source data_update.sh
+
 # Running python script
 python3 cov_vis.py
 

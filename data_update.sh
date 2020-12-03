@@ -6,12 +6,15 @@ cd ../Covid-19-IND/
 cp ../covid19/data/mohfw.json data/mohfw.json
 cp ../covid19/data/all_totals.json data/all_totals.json
 
+# replacing few error values in the data (datetime is written in wrong format in some places)
+sed -rE 's#([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)\+05-30#\1:\2:\3.\4+05:30#g' -i data/mohfw.json
+sed -rE 's#([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)\+05-30#\1:\2:\3.\4+05:30#g' -i data/all_totals.json
 # grep keyword, match the line, use capture groups
-grep cured ../covid19/data/all_totals.json | sed -E 's#\{["a-z:]+\["([-0-9T:\.\+]+)[a-z",_]+\][a-z",_:]+([0-9]+)\},?#\1,\2#g' > data/cured.csv
+grep cured data/all_totals.json | sed -E 's#\{["a-z:]+\["([-0-9T:\.\+]+)[a-z",_]+\][a-z",_:]+([0-9]+)\},?#\1,\2#g' > data/cured.csv
 
-grep death ../covid19/data/all_totals.json | sed -E 's#\{["a-z:]+\["([-0-9T:\.\+]+)[a-z",_]+\][a-z",_:]+([0-9]+)\},?#\1,\2#g' > data/deaths.csv
+grep death data/all_totals.json | sed -E 's#\{["a-z:]+\["([-0-9T:\.\+]+)[a-z",_]+\][a-z",_:]+([0-9]+)\},?#\1,\2#g' > data/deaths.csv
 
-grep total ../covid19/data/all_totals.json | sed -E 's#\{["a-z:]+\["([-0-9T:\.\+]+)[a-z",_]+\][a-z",_:]+([0-9]+)\},?#\1,\2#g' > data/confirmed.csv
+grep total data/all_totals.json | sed -E 's#\{["a-z:]+\["([-0-9T:\.\+]+)[a-z",_]+\][a-z",_:]+([0-9]+)\},?#\1,\2#g' > data/confirmed.csv
 
 #writing the heading to the file
 echo "report_time,samples,individuals,confirmed_positive" > data/testing.csv

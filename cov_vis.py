@@ -15,11 +15,6 @@ register_matplotlib_converters()
 
 #%%
 
-os.system('./data_update.sh') # updating the data (fteching updates from the source repo)
-#https://github.com/datameet/covid19
-
-#%%
-
 f = 'data/mohfw.json'
 
 data = pd.read_json(f) # reading the json file
