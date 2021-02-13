@@ -19,7 +19,7 @@ f = 'data/mohfw.json'
 
 data = pd.read_json(f) # reading the json file
 
-df = pd.io.json.json_normalize(data['rows']) # getting data from the json file
+df = pd.json_normalize(data['rows']) # getting data from the json file
 # i know its a little convoluted here (found the solution after 40 minutes of searching :P)
 #
 
@@ -174,7 +174,7 @@ class State:
 
         #ax[0].set_xlabel('Date')
         ax[0].set_ylabel('Numbers')
-#        ax[0].set_ylim(0, 12000)
+        #ax[0].set_ylim(0, 12000)
         if ylimit is None:
             ax[0].set_ylim(0, self.conf_count*1.1)
         else:
@@ -200,9 +200,9 @@ class State:
     #    ax[1].set_xlabel('Date')
         ax[1].set_ylabel('Numbers')
         ax[1].set_yscale('symlog')
-        ax[1].set_yticks([10**i for i in range(8)])
-        ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(8)])
-        ax[1].set_ylim(0,10**7)
+        ax[1].set_yticks([10**i for i in range(10)])
+        ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(10)])
+        ax[1].set_ylim(0, 10e+8)
 
 
         'bottom panel showing daily counts'
@@ -215,7 +215,7 @@ class State:
                              end=pd.to_datetime('today')+pd.Timedelta('7 days'),
                              freq='30D')
         ax[2].set_xticks(xtik)
-        ax[2].set_xticklabels(xtik.strftime('%d \n %b'))
+        ax[2].set_xticklabels(xtik.strftime('%b'))
         ax[2].set_xlim('2020-03-08',pd.to_datetime('today')+pd.Timedelta('5 days'))
         ax[2].set_xlabel('Date')
 
@@ -228,7 +228,7 @@ class State:
         else:
             pass
 
-        #plt.show()
+        # plt.show()
         plt.close()
 
 
@@ -238,13 +238,13 @@ states_list = list(set(df['value.state'].str.lower()))
 
 #%%
 
-#dk = df[(df['value.state'] == 'kl')]
+# dk = df[(df['value.state'] == 'kl')]
 
-#self = State(dk,'kl')
-#name = {'object':self}
-#detail = self.get_details()
-#detail.update(name)
-#self.plot_summary()
+# self = State(dk,'kl')
+# name = {'object':self}
+# detail = self.get_details()
+# detail.update(name)
+# self.plot_summary()
 
 
 #%%
@@ -291,13 +291,13 @@ def plot_bar(db):
                                        figsize=(12,16), width=.7, fontsize=13,
                                        color=['C2', 'C0', 'C1'], stacked=True)
     for i in range(len(tot)):
-        ax.text(tot[i]+20,i-.1,'{:<4d}'.format(tot[i]), fontsize=12)
-        ax.text(tot[i]+650,i+.05,'{}'.format(cured[i]), fontsize=10, color='g')
-        ax.text(tot[i]+650,i-.25,'{}'.format(death[i]), fontsize=9, color='r')
+        ax.text(tot[i]+20,i-.1,f'{tot[i]:<4d}', fontsize=12)
+        ax.text(tot[i]+650,i+.05, f'{cured[i]}', fontsize=10, color='g')
+        ax.text(tot[i]+650,i-.25, f'{death[i]}', fontsize=9, color='r')
 
     ax.set_title('India \n(Cases:{}, Cured:{}, deaths:{})'.format(*list(India.values())),
                          fontsize=14)
-    ax.set_xlim(0,max(tot)+800)
+    ax.set_xlim(0,max(tot)*1.1)
     ax.set_alpha(0.8)
 
     ax.set_yticklabels(list(db.State))
@@ -306,12 +306,14 @@ def plot_bar(db):
              framealpha=.7,facecolor='white', borderpad=1)
 
     plt.tight_layout()
-    plt.savefig(f'plots/summary.pdf')
+    plt.savefig('plots/summary.pdf')
     plt.show()
     plt.close()
 
 #%%
-db5 = db[-15:]
+
+# plotting top 15 states
+db5 = db[-15:] #-15 to end will give us all top values
 plot_bar(db5)
 
 #%%
@@ -369,13 +371,13 @@ os.system('pandoc Intro.md -t beamer -o report.pdf')
 
 #%%
 #dates = pd.date_range(start='3/10/2020', end=pd.to_datetime('today')+pd.Timedelta('1 days'),tz='Indian/Cocos')
-#
+
 #for d in dates:
-#    self = State(ind[(ind['value.report_time'] <= d)],'ind')
-#    self.get_details()
-#    self.plot_summary(plot_flag=1,ylimit=18000)
-#
-#    print(d)
+   #self = State(ind[(ind['value.report_time'] <= d)],'ind')
+   #self.get_details()
+   #self.plot_summary(plot_flag=1,ylimit=18000)
+
+   #print(d)
 
 #%%
 #self.growthrate = ((self.daily_conf[-1]/self.daily_conf[-2]) - 1)*100
