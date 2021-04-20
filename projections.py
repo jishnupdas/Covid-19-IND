@@ -49,7 +49,7 @@ def projection_plot(df):
 
     #lastday = df.index[-1] + Timedelta(30, 'd') # extrapolate 60 days
 
-    lastday = pd.datetime(2020,11,1)
+    lastday = pd.datetime(2021,7,1)
 
     plt.style.use('seaborn')
     fig, ax = subplots(figsize=(16,10))
@@ -131,19 +131,19 @@ def projection_plot(df):
 df = read_csv('data/time_series.csv', parse_dates=['Date'], index_col='Date')
 
 #%%
-#db = df[21:]
-#projection_plot(db)
+db = df[50:]
+projection_plot(db)
 
 #%%
 
-df1 = df[21:]
+#df1 = df[21:]
 
-for i in range(17,len(df1.index)+1):
-    db = df1[:i]
-    projection_plot(db)
+#for i in range(17,len(df1.index)+1):
+#    db = df1[:i]
+#    projection_plot(db)
 
 #%%
-os.system('convert -delay 100 t_plot/projection_* -delay 100 -loop 0 plots/prjct.gif')
+#os.system('convert -delay 100 t_plot/projection_* -delay 100 -loop 0 plots/prjct.gif')
 
 #%%
 #plt.plot(df.index,df['Dead'])
