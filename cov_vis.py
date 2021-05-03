@@ -146,7 +146,7 @@ class State:
         'plotting the results in a multipanel plot'
 
         plt.style.use('seaborn')
-        fig, ax = plt.subplots(3, 1,figsize=(9,8),sharex=True,
+        fig, ax = plt.subplots(3, 1,figsize=(15,9),sharex=True,
                             gridspec_kw={'height_ratios': [2.1, 2.4, 1]})
 
         'top panel showing counts vs time with a legend'
@@ -185,31 +185,27 @@ class State:
 
         'middle panel with log scale of counts vs time'
         '----------------------------------------------'
-        ax[1].set_title("Log scale")
-
-        ax[1].plot(self.time,self.conf,'C0-o',lw=5,ms=10)
-
-        ax[1].plot(self.time,self.cure,'C1-p',lw=4,ms=10)
-
-        ax[1].plot(self.time,self.deth,'C2-v',alpha=.6)
-
-        ax[1].fill_between(self.time,self.conf,self.cure,facecolor='C0',alpha=0.1)
-        ax[1].fill_between(self.time,self.cure,self.deth,facecolor='C1',alpha=0.2)
-        ax[1].fill_between(self.time,self.deth,facecolor='C2',alpha=0.2)
-
-    #    ax[1].set_xlabel('Date')
+        ax[1].set_title('Daily Cases (log scale)')
+        
+        ax[1].bar(self.time, self.daily_death, width=.5, color='C2')
+        ax[1].bar(self.time, self.daily_conf,width=.5, bottom=-self.daily_death)
         ax[1].set_ylabel('Numbers')
         ax[1].set_yscale('symlog')
-        ax[1].set_yticks([10**i for i in range(10)])
-        ax[1].set_yticklabels(['{:2d}'.format(10**i) for i in range(10)])
-        ax[1].set_ylim(0, 10e+8)
+    #    ax[1].set_xlabel('Date')
 
 
         'bottom panel showing daily counts'
         '----------------------------------------------'
-        ax[2].set_title('Daily Cases')
+        ax[2].set_title("Log scale")
+        ax[2].plot(self.time,self.conf,'C0-o',lw=5,ms=10)
 
-        ax[2].bar(self.time, self.daily_conf,width=.5)
+        ax[2].plot(self.time,self.cure,'C1-p',lw=4,ms=10)
+
+        ax[2].plot(self.time,self.deth,'C2-v',alpha=.6)
+
+        ax[2].fill_between(self.time,self.conf,self.cure,facecolor='C0',alpha=0.1)
+        ax[2].fill_between(self.time,self.cure,self.deth,facecolor='C1',alpha=0.2)
+        ax[2].fill_between(self.time,self.deth,facecolor='C2',alpha=0.2)
 
         xtik = pd.date_range(start='3/10/2020',
                              end=pd.to_datetime('today')+pd.Timedelta('7 days'),
@@ -218,6 +214,11 @@ class State:
         ax[2].set_xticklabels(xtik.strftime('%b'))
         ax[2].set_xlim('2020-03-08',pd.to_datetime('today')+pd.Timedelta('5 days'))
         ax[2].set_xlabel('Date')
+        ax[2].set_ylabel('Numbers')
+        ax[2].set_yscale('symlog')
+        #ax[2].set_yticks([10**i for i in range(10)])
+        #ax[2].set_yticklabels(['{:2d}'.format(10**i) for i in range(10)])
+        ax[2].set_ylim(0, 10e+8)
 
         fig.tight_layout()
 
@@ -363,7 +364,7 @@ with open('README.md','r') as intro:
         for state in states_list:
             st     = state
             state  = state_dict[state]
-            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.pdf){{width=70%}}\n\n\n')
+            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.pdf){{width=85%}}\n\n\n')
     #            outfile.write(f'# {state} \n\n\n![](plots/{st}.png)\n\n\n')
 
 #%%

@@ -46,272 +46,272 @@ Each state's data is visualized in three different plots
 
 \centering
 
-![](plots/mh.pdf){width=70%}
+![](plots/mh.pdf){width=85%}
 
 
 # Kerala 
 
 \centering
 
-![](plots/kl.pdf){width=70%}
+![](plots/kl.pdf){width=85%}
 
 
 # Karnataka 
 
 \centering
 
-![](plots/ka.pdf){width=70%}
-
-
-# Tamil Nadu 
-
-\centering
-
-![](plots/tn.pdf){width=70%}
-
-
-# Andhra Pradesh 
-
-\centering
-
-![](plots/ap.pdf){width=70%}
-
-
-# Delhi 
-
-\centering
-
-![](plots/dl.pdf){width=70%}
+![](plots/ka.pdf){width=85%}
 
 
 # Uttar Pradesh 
 
 \centering
 
-![](plots/up.pdf){width=70%}
+![](plots/up.pdf){width=85%}
+
+
+# Tamil Nadu 
+
+\centering
+
+![](plots/tn.pdf){width=85%}
+
+
+# Delhi 
+
+\centering
+
+![](plots/dl.pdf){width=85%}
+
+
+# Andhra Pradesh 
+
+\centering
+
+![](plots/ap.pdf){width=85%}
 
 
 # West Bengal 
 
 \centering
 
-![](plots/wb.pdf){width=70%}
+![](plots/wb.pdf){width=85%}
 
 
 # Chhattisgarh 
 
 \centering
 
-![](plots/ct.pdf){width=70%}
+![](plots/ct.pdf){width=85%}
 
 
 # Rajasthan 
 
 \centering
 
-![](plots/rj.pdf){width=70%}
-
-
-# Madhya Pradesh 
-
-\centering
-
-![](plots/mp.pdf){width=70%}
+![](plots/rj.pdf){width=85%}
 
 
 # Gujarat 
 
 \centering
 
-![](plots/gj.pdf){width=70%}
+![](plots/gj.pdf){width=85%}
 
 
-# Odisha 
+# Madhya Pradesh 
 
 \centering
 
-![](plots/or.pdf){width=70%}
+![](plots/mp.pdf){width=85%}
 
 
 # Haryana 
 
 \centering
 
-![](plots/hr.pdf){width=70%}
-
-
-# Telangana 
-
-\centering
-
-![](plots/tg.pdf){width=70%}
+![](plots/hr.pdf){width=85%}
 
 
 # Bihar 
 
 \centering
 
-![](plots/br.pdf){width=70%}
+![](plots/br.pdf){width=85%}
+
+
+# Odisha 
+
+\centering
+
+![](plots/or.pdf){width=85%}
+
+
+# Telangana 
+
+\centering
+
+![](plots/tg.pdf){width=85%}
 
 
 # Punjab 
 
 \centering
 
-![](plots/pb.pdf){width=70%}
+![](plots/pb.pdf){width=85%}
 
 
 # Assam 
 
 \centering
 
-![](plots/as.pdf){width=70%}
+![](plots/as.pdf){width=85%}
 
 
 # Jharkhand 
 
 \centering
 
-![](plots/jh.pdf){width=70%}
-
-
-# Jammu and Kashmir 
-
-\centering
-
-![](plots/jk.pdf){width=70%}
+![](plots/jh.pdf){width=85%}
 
 
 # Uttarakhand 
 
 \centering
 
-![](plots/ut.pdf){width=70%}
+![](plots/ut.pdf){width=85%}
+
+
+# Jammu and Kashmir 
+
+\centering
+
+![](plots/jk.pdf){width=85%}
 
 
 # Himachal Pradesh 
 
 \centering
 
-![](plots/hp.pdf){width=70%}
+![](plots/hp.pdf){width=85%}
 
 
 # Goa 
 
 \centering
 
-![](plots/ga.pdf){width=70%}
+![](plots/ga.pdf){width=85%}
 
 
 # Puducherry 
 
 \centering
 
-![](plots/py.pdf){width=70%}
-
-
-# Tripura 
-
-\centering
-
-![](plots/tr.pdf){width=70%}
+![](plots/py.pdf){width=85%}
 
 
 # Chandigarh 
 
 \centering
 
-![](plots/ch.pdf){width=70%}
+![](plots/ch.pdf){width=85%}
+
+
+# Tripura 
+
+\centering
+
+![](plots/tr.pdf){width=85%}
 
 
 # Manipur 
 
 \centering
 
-![](plots/mn.pdf){width=70%}
+![](plots/mn.pdf){width=85%}
 
 
 # Arunachal Pradesh 
 
 \centering
 
-![](plots/ar.pdf){width=70%}
+![](plots/ar.pdf){width=85%}
 
 
 # Meghalaya 
 
 \centering
 
-![](plots/ml.pdf){width=70%}
+![](plots/ml.pdf){width=85%}
 
 
 # Nagaland 
 
 \centering
 
-![](plots/nl.pdf){width=70%}
+![](plots/nl.pdf){width=85%}
 
 
 # Ladakh 
 
 \centering
 
-![](plots/la.pdf){width=70%}
+![](plots/la.pdf){width=85%}
 
 
 # Unassigned 
 
 \centering
 
-![](plots/unassigned.pdf){width=70%}
+![](plots/unassigned.pdf){width=85%}
 
 
 # Sikkim 
 
 \centering
 
-![](plots/sk.pdf){width=70%}
+![](plots/sk.pdf){width=85%}
 
 
-# Andaman and Nicobar Islands 
+# Daman and Diu 
 
 \centering
 
-![](plots/an.pdf){width=70%}
+![](plots/dn_dd.pdf){width=85%}
 
 
 # Mizoram 
 
 \centering
 
-![](plots/mz.pdf){width=70%}
+![](plots/mz.pdf){width=85%}
 
 
-# Daman and Diu 
+# Andaman and Nicobar Islands 
 
 \centering
 
-![](plots/dn_dd.pdf){width=70%}
+![](plots/an.pdf){width=85%}
 
 
 # Lakshadweep 
 
 \centering
 
-![](plots/ld.pdf){width=70%}
+![](plots/ld.pdf){width=85%}
 
 
 # Dadar Nagar Haveli 
 
 \centering
 
-![](plots/dn.pdf){width=70%}
+![](plots/dn.pdf){width=85%}
 
 
 # Daman and Diu 
 
 \centering
 
-![](plots/dd.pdf){width=70%}
+![](plots/dd.pdf){width=85%}
 
 
