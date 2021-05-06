@@ -46,272 +46,272 @@ Each state's data is visualized in three different plots
 
 \centering
 
-![](plots/mh.pdf){width=85%}
+![](plots/mh.pdf){width=90%}
 
 
 # Kerala 
 
 \centering
 
-![](plots/kl.pdf){width=85%}
+![](plots/kl.pdf){width=90%}
 
 
 # Karnataka 
 
 \centering
 
-![](plots/ka.pdf){width=85%}
+![](plots/ka.pdf){width=90%}
 
 
 # Uttar Pradesh 
 
 \centering
 
-![](plots/up.pdf){width=85%}
+![](plots/up.pdf){width=90%}
 
 
 # Tamil Nadu 
 
 \centering
 
-![](plots/tn.pdf){width=85%}
+![](plots/tn.pdf){width=90%}
 
 
 # Delhi 
 
 \centering
 
-![](plots/dl.pdf){width=85%}
+![](plots/dl.pdf){width=90%}
 
 
 # Andhra Pradesh 
 
 \centering
 
-![](plots/ap.pdf){width=85%}
+![](plots/ap.pdf){width=90%}
 
 
 # West Bengal 
 
 \centering
 
-![](plots/wb.pdf){width=85%}
+![](plots/wb.pdf){width=90%}
 
 
 # Chhattisgarh 
 
 \centering
 
-![](plots/ct.pdf){width=85%}
+![](plots/ct.pdf){width=90%}
 
 
 # Rajasthan 
 
 \centering
 
-![](plots/rj.pdf){width=85%}
+![](plots/rj.pdf){width=90%}
 
 
 # Gujarat 
 
 \centering
 
-![](plots/gj.pdf){width=85%}
+![](plots/gj.pdf){width=90%}
 
 
 # Madhya Pradesh 
 
 \centering
 
-![](plots/mp.pdf){width=85%}
+![](plots/mp.pdf){width=90%}
 
 
 # Haryana 
 
 \centering
 
-![](plots/hr.pdf){width=85%}
+![](plots/hr.pdf){width=90%}
 
 
 # Bihar 
 
 \centering
 
-![](plots/br.pdf){width=85%}
+![](plots/br.pdf){width=90%}
 
 
 # Odisha 
 
 \centering
 
-![](plots/or.pdf){width=85%}
+![](plots/or.pdf){width=90%}
 
 
 # Telangana 
 
 \centering
 
-![](plots/tg.pdf){width=85%}
+![](plots/tg.pdf){width=90%}
 
 
 # Punjab 
 
 \centering
 
-![](plots/pb.pdf){width=85%}
+![](plots/pb.pdf){width=90%}
 
 
 # Assam 
 
 \centering
 
-![](plots/as.pdf){width=85%}
+![](plots/as.pdf){width=90%}
 
 
 # Jharkhand 
 
 \centering
 
-![](plots/jh.pdf){width=85%}
+![](plots/jh.pdf){width=90%}
 
 
 # Uttarakhand 
 
 \centering
 
-![](plots/ut.pdf){width=85%}
+![](plots/ut.pdf){width=90%}
 
 
 # Jammu and Kashmir 
 
 \centering
 
-![](plots/jk.pdf){width=85%}
+![](plots/jk.pdf){width=90%}
 
 
 # Himachal Pradesh 
 
 \centering
 
-![](plots/hp.pdf){width=85%}
+![](plots/hp.pdf){width=90%}
 
 
 # Goa 
 
 \centering
 
-![](plots/ga.pdf){width=85%}
+![](plots/ga.pdf){width=90%}
 
 
 # Puducherry 
 
 \centering
 
-![](plots/py.pdf){width=85%}
+![](plots/py.pdf){width=90%}
 
 
 # Chandigarh 
 
 \centering
 
-![](plots/ch.pdf){width=85%}
+![](plots/ch.pdf){width=90%}
 
 
 # Tripura 
 
 \centering
 
-![](plots/tr.pdf){width=85%}
+![](plots/tr.pdf){width=90%}
 
 
 # Manipur 
 
 \centering
 
-![](plots/mn.pdf){width=85%}
+![](plots/mn.pdf){width=90%}
 
 
 # Arunachal Pradesh 
 
 \centering
 
-![](plots/ar.pdf){width=85%}
+![](plots/ar.pdf){width=90%}
 
 
 # Meghalaya 
 
 \centering
 
-![](plots/ml.pdf){width=85%}
+![](plots/ml.pdf){width=90%}
 
 
 # Nagaland 
 
 \centering
 
-![](plots/nl.pdf){width=85%}
+![](plots/nl.pdf){width=90%}
 
 
 # Ladakh 
 
 \centering
 
-![](plots/la.pdf){width=85%}
+![](plots/la.pdf){width=90%}
 
 
 # Unassigned 
 
 \centering
 
-![](plots/unassigned.pdf){width=85%}
+![](plots/unassigned.pdf){width=90%}
 
 
 # Sikkim 
 
 \centering
 
-![](plots/sk.pdf){width=85%}
+![](plots/sk.pdf){width=90%}
 
 
 # Daman and Diu 
 
 \centering
 
-![](plots/dn_dd.pdf){width=85%}
+![](plots/dn_dd.pdf){width=90%}
 
 
 # Mizoram 
 
 \centering
 
-![](plots/mz.pdf){width=85%}
+![](plots/mz.pdf){width=90%}
 
 
 # Andaman and Nicobar Islands 
 
 \centering
 
-![](plots/an.pdf){width=85%}
+![](plots/an.pdf){width=90%}
 
 
 # Lakshadweep 
 
 \centering
 
-![](plots/ld.pdf){width=85%}
+![](plots/ld.pdf){width=90%}
 
 
 # Dadar Nagar Haveli 
 
 \centering
 
-![](plots/dn.pdf){width=85%}
+![](plots/dn.pdf){width=90%}
 
 
 # Daman and Diu 
 
 \centering
 
-![](plots/dd.pdf){width=85%}
+![](plots/dd.pdf){width=90%}
 
 

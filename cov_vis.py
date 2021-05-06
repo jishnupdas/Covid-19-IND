@@ -115,9 +115,9 @@ class State:
 
         if self.conf_count > 0:
             self.fatality_rate = self.deth_count*100/self.conf_count
-            self.daily_conf    = [0]+[self.conf[i]-self.conf[i-1] for i in range(1,len(self.conf))]
-            self.daily_cure    = [0]+[self.cure[i]-self.cure[i-1] for i in range(1,len(self.cure))]
-            self.daily_death   = [0]+[self.deth[i]-self.deth[i-1] for i in range(1,len(self.deth))]
+            self.daily_conf    = np.array([0]+[self.conf[i]-self.conf[i-1] for i in range(1,len(self.conf))])
+            self.daily_cure    = np.array([0]+[self.cure[i]-self.cure[i-1] for i in range(1,len(self.cure))])
+            self.daily_death   = np.array([0]+[self.deth[i]-self.deth[i-1] for i in range(1,len(self.deth))])
         else:
             self.fatality_rate = 0
             self.daily_conf    = [0]
@@ -146,7 +146,7 @@ class State:
         'plotting the results in a multipanel plot'
 
         plt.style.use('seaborn')
-        fig, ax = plt.subplots(3, 1,figsize=(15,9),sharex=True,
+        fig, ax = plt.subplots(3, 1,figsize=(15,10),sharex=True,
                             gridspec_kw={'height_ratios': [2.1, 2.4, 1]})
 
         'top panel showing counts vs time with a legend'
@@ -185,14 +185,16 @@ class State:
 
         'middle panel with log scale of counts vs time'
         '----------------------------------------------'
-        ax[1].set_title('Daily Cases (log scale)')
+        ax[1].set_title('Daily Cases')
         
+        #ax[1].bar(self.time, self.daily_death, width=.5, color='C2')
+        #ax[1].bar(self.time, self.daily_conf, width=.5, bottom=self.daily_death)
+        ax[1].bar(self.time, self.daily_conf, width=.35)
         ax[1].bar(self.time, self.daily_death, width=.5, color='C2')
-        ax[1].bar(self.time, self.daily_conf,width=.5, bottom=-self.daily_death)
         ax[1].set_ylabel('Numbers')
-        ax[1].set_yscale('symlog')
-    #    ax[1].set_xlabel('Date')
-
+        #ax[1].set_yscale('symlog')
+        ax[1].set_ylim(0, max(self.daily_conf)*1.1)
+        #ax[1].set_xlabel('Date')
 
         'bottom panel showing daily counts'
         '----------------------------------------------'
@@ -216,7 +218,7 @@ class State:
         ax[2].set_xlabel('Date')
         ax[2].set_ylabel('Numbers')
         ax[2].set_yscale('symlog')
-        #ax[2].set_yticks([10**i for i in range(10)])
+        ax[2].set_yticks([10**i for i in range(10) if i%2==0])
         #ax[2].set_yticklabels(['{:2d}'.format(10**i) for i in range(10)])
         ax[2].set_ylim(0, 10e+8)
 
@@ -308,7 +310,7 @@ def plot_bar(db):
 
     plt.tight_layout()
     plt.savefig('plots/summary.pdf')
-    plt.show()
+    #plt.show()
     plt.close()
 
 #%%
@@ -364,7 +366,7 @@ with open('README.md','r') as intro:
         for state in states_list:
             st     = state
             state  = state_dict[state]
-            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.pdf){{width=85%}}\n\n\n')
+            outfile.write(f'# {state} \n\n\centering\n\n![](plots/{st}.pdf){{width=90%}}\n\n\n')
     #            outfile.write(f'# {state} \n\n\n![](plots/{st}.png)\n\n\n')
 
 #%%
