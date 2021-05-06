@@ -187,10 +187,10 @@ class State:
         '----------------------------------------------'
         ax[1].set_title('Daily Cases')
         
+        ax[1].bar(self.time, self.daily_death, width = 1, color='C2')
+        ax[1].bar(self.time, self.daily_conf, width = .5, bottom=self.daily_death)
+        #ax[1].bar(self.time, self.daily_conf, width=.35)
         #ax[1].bar(self.time, self.daily_death, width=.5, color='C2')
-        #ax[1].bar(self.time, self.daily_conf, width=.5, bottom=self.daily_death)
-        ax[1].bar(self.time, self.daily_conf, width=.35)
-        ax[1].bar(self.time, self.daily_death, width=.5, color='C2')
         ax[1].set_ylabel('Numbers')
         #ax[1].set_yscale('symlog')
         ax[1].set_ylim(0, max(self.daily_conf)*1.1)
@@ -199,11 +199,11 @@ class State:
         'bottom panel showing daily counts'
         '----------------------------------------------'
         ax[2].set_title("Log scale")
-        ax[2].plot(self.time,self.conf,'C0-o',lw=5,ms=10)
+        ax[2].plot(self.time,self.conf,'C0-',lw=5)
 
-        ax[2].plot(self.time,self.cure,'C1-p',lw=4,ms=10)
+        ax[2].plot(self.time,self.cure,'C1-',lw=4)
 
-        ax[2].plot(self.time,self.deth,'C2-v',alpha=.6)
+        ax[2].plot(self.time,self.deth,'C2-',alpha=.6)
 
         ax[2].fill_between(self.time,self.conf,self.cure,facecolor='C0',alpha=0.1)
         ax[2].fill_between(self.time,self.cure,self.deth,facecolor='C1',alpha=0.2)
